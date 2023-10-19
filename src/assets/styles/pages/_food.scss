@@ -1,0 +1,20 @@
+.page {
+	$this: &;
+	&._food {
+		#{$this}__container {
+			padding-top: rem(15);
+		}
+
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(95);
+			}
+		}
+
+		@media (max-width: $mobile-lg) {
+			#{$this}__container {
+				padding-top: rem(20);
+			}
+		}
+	}
+}

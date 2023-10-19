@@ -1,0 +1,17 @@
+.food-list {
+	position: relative;
+	display: grid;
+	&__table {
+		pointer-events: none;
+		&:not(:last-child) {
+			margin-bottom: rem(110);
+
+			@media (max-width: $mobile-lg) {
+				margin-bottom: rem(55);
+			}
+		}
+		& > * {
+			pointer-events: all;
+		}
+	}
+}

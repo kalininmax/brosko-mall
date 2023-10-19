@@ -1,0 +1,24 @@
+{% extends "../templates/rent-page.njk" %}
+
+{% block title %}События | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_rent' %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page__title-wrapper page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Арендаторам</h1>
+	</div>
+
+	{% include "rent/intro-rent/intro-rent.njk" %}
+	{% include "rent/numbers/numbers.njk" %}
+	{% include "rent/ticker-rent/ticker-rent.njk" %}
+	{% include "rent/projects/projects.njk" %}
+
+	{{ component('notification',{
+		text: '<p>Заявка отправлена – мы свяжемся с вами ближайшее время</p>'
+	}) }}
+</main>
+
+{% endblock %}

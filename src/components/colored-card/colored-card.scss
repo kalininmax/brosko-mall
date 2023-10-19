@@ -1,0 +1,136 @@
+.colored-card {
+	$this: &;
+	--padding: #{rem(20)};
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	row-gap: rem(100);
+	padding: var(--padding);
+	width: 100%;
+	background-color: var(--bg-color);
+	text-decoration: none;
+	&._img-right-bottom {
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $desktop-sm) {
+		row-gap: rem(115);
+	}
+
+	@media (max-width: $laptop-sm) {
+		row-gap: rem(70);
+	}
+
+	@media (max-width: $mobile-only) {
+		--padding: #{rem(15)};
+	}
+	&__picture {
+		position: relative;
+		display: block;
+		padding-bottom: calc(550 / 584 * 100%);
+		width: calc(486 / 630 * 100%);
+		height: 0;
+		overflow: hidden;
+		#{$this}._img-left & {
+			margin-bottom: rem(20);
+			margin-inline-start: calc(0px - var(--padding));
+		}
+		#{$this}._img-right-gap & {
+			align-self: flex-end;
+			margin-bottom: rem(20);
+			margin-inline-end: rem(20);
+		}
+		#{$this}._img-right-bottom & {
+			align-self: flex-end;
+			margin-inline-end: calc(0px - var(--padding));
+		}
+
+		@media (max-width: $desktop-sm) {
+			padding-bottom: calc(518 / 584 * 100%);
+			width: calc(462 / 630 * 100%);
+			#{$this}._img-left & {
+				margin-bottom: 0;
+			}
+			#{$this}._img-right-gap & {
+				margin-bottom: 0;
+				margin-inline-end: 0;
+			}
+		}
+
+		@media (max-width: $laptop-sm) {
+			padding-bottom: 110%;
+			width: 90%;
+		}
+
+		@media (max-width: $mobile-only) {
+			padding-bottom: calc(123 / 200 * 100%);
+			width: calc(181 / 355 * 100%);
+			#{$this}._img-left & {
+				margin-bottom: rem(5);
+			}
+			#{$this}._img-right-gap & {
+				margin-top: rem(10);
+				margin-bottom: calc(0px - rem(5));
+				margin-inline-end: calc(0px - rem(5));
+			}
+			#{$this}._img-right-bottom & {
+				margin-top: rem(20);
+			}
+		}
+	}
+	&__img {
+		transition: transform $default-transition-duration $default-transition-function;
+		will-change: transform;
+		#{$this}:hover & {
+			transform: scale(1.1);
+		}
+
+		@media (max-width: $mobile-only) {
+			#{$this}:hover & {
+				transform: none;
+			}
+		}
+	}
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		margin-inline-end: rem(-5);
+		transition: letter-spacing $default-transition-duration $default-transition-function;
+		will-change: letter-spacing;
+		&::after {
+			content: '→';
+			margin-inline-end: 0.2em;
+			opacity: 0;
+			transition: opacity $default-transition-duration $default-transition-function,
+				margin $default-transition-duration $default-transition-function;
+		}
+		#{$this}:hover & {
+			letter-spacing: 0.04em;
+			&::after {
+				margin-inline-end: 0;
+				opacity: 1;
+			}
+		}
+
+		@media (max-width: $mobile-only) {
+			#{$this}:hover & {
+				letter-spacing: 0.02em;
+			}
+			&::after {
+				margin-inline-end: 0;
+				opacity: 1;
+			}
+		}
+	}
+	a {
+		text-decoration: none;
+		&::after {
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			content: '';
+		}
+	}
+}

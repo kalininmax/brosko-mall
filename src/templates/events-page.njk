@@ -1,0 +1,11 @@
+{% extends "./base.njk" %}
+
+{% block pageWrapper %}
+
+{{ component('header', { className: '_filter', eventsFilter: true }) }}
+
+{% block content %}{% endblock %}
+
+{{ component('footer', { socialsList: site.socialsList, copyright: site.copyright }) }}
+
+{% endblock pageWrapper %}

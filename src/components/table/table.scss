@@ -1,0 +1,27 @@
+.table {
+	position: relative;
+	display: grid;
+	text-transform: uppercase;
+	&__title {
+		@extend .text-l;
+
+		padding-bottom: rem(10);
+		border-bottom: 1px solid rgba($black, 0.1);
+		text-align: left;
+	}
+	tr {
+		display: grid;
+		grid-auto-columns: max-content;
+		grid-auto-flow: column;
+		justify-content: space-between;
+		gap: rem(10);
+		padding: rem(20) 0;
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+	th {
+		text-align: left;
+		font: inherit;
+	}
+}

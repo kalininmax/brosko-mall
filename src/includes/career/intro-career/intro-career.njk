@@ -1,0 +1,112 @@
+{% set careerCoverImages = [
+	{
+		src: 'career/career-cover.jpg',
+		width: 1420,
+		height: 825
+	},
+	{
+		src: 'career/career-cover.jpg',
+		width: 1420,
+		height: 825
+	},
+	{
+		src: 'career/career-cover.jpg',
+		width: 1420,
+		height: 825
+	}
+] %}
+{% set careerList1 = [
+	{
+		bgColor: '#66C5FB',
+		text: 'Белая заработная плата'
+	},
+	{
+		bgColor: '#FF7749',
+		text: 'Официальное трудоустройство'
+	},
+	{
+		bgColor: '#F9EA48',
+		text: 'Профессиональное  развитие'
+	},
+	{
+		bgColor: '#5EBBB6',
+		text: 'Стильный и комфортный офис'
+	},
+	{
+		bgColor: '#AFA7C9',
+		text: 'Скидки для сотрудников'
+	},
+	{
+		bgColor: '#EF6EC7',
+		text: 'Современное оборудование'
+	}
+] %}
+{% set careerList2 = [
+	{
+		bgColor: '#66C5FB',
+		text: 'Белая заработная плата'
+	},
+	{
+		bgColor: '#FF7749',
+		text: 'Официальное трудоустройство'
+	},
+	{
+		bgColor: '#F9EA48',
+		text: 'Профессиональное  развитие'
+	},
+	{
+		bgColor: '#5EBBB6',
+		text: 'Стильный и комфортный офис'
+	},
+	{
+		bgColor: '#AFA7C9',
+		text: 'Скидки для сотрудников'
+	},
+	{
+		bgColor: '#EF6EC7',
+		text: 'Современное оборудование'
+	}
+] %}
+
+<section class="page__section intro-career">
+	<div class="intro-career__container container">
+		<div class="page__title-wrapper page-title-wrapper">
+			<h1 class="page-title _center" data-animation="fadeInLetters"><span>Работа в Brosco</span></h1>
+		</div>
+
+		{{ component('slider', {
+			className: 'intro-career__cover',
+			images: careerCoverImages,
+			pagination: true,
+			autoplay: true
+		}) }}
+
+		<div class="intro-career__content text-body-universal">
+			<h2 class="text-l"><span>Карьера у нас</span></h2>
+			<p>Наконец-то в Хабаровске появился ТРК с мировыми брендами. Это место, где городские жители, стремящиеся к практичной индивидуальности, смогут c легкостью найти своё собственное уникальное Я и подобрать одежду по своему настроению.</p>
+			<p>На третьем этаже торгово-развлекательного комплекса разместился первый в Хабаровске кинотеатр IMAX и фудкорт с 18 ресторанами и кафе, объединенные общей концепцией «Кухни мира».</p>
+		</div>
+	</div>
+
+	<div class="intro-career__ticker">
+		<ul class="intro-career__list uppercase" data-ticker>
+			{% for item in careerList1 %}
+				<li class="intro-career__item" style="--bg-color:{{ item.bgColor }}">{{ item.text }}</li>
+			{% endfor %}
+		</ul>
+		<ul class="intro-career__list uppercase" data-ticker>
+			{% for item in careerList2 %}
+				<li class="intro-career__item" style="--bg-color:{{ item.bgColor }}">{{ item.text }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="intro-career__container container">
+		{{ component('video', {
+			className: 'intro-career__video',
+			cover: 'career/video-cover.jpg',
+			videoUrl: 'https://youtu.be/b9fe3TE4lHA',
+			duration: '00:55'
+		}) }}
+	</div>
+</section>

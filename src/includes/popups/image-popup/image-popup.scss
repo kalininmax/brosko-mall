@@ -1,0 +1,9 @@
+.image-popup {
+	position: relative;
+	&__img {
+		display: block;
+		width: 90vw;
+		height: 90vh;
+		object-fit: contain;
+	}
+}

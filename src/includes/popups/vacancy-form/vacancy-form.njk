@@ -1,0 +1,14 @@
+<section class="vacancy-form">
+	<div class="vacancy-form__container">
+		<h2 class="popups__title vacancy-form__title">Оставить резюме</h2>
+		<div class="vacancy-form__desc text-body-universal alpha-50">
+			<p>Расскажите нам о себе и мы обязательно с вами свяжемся</p>
+		</div>
+		{% include "career/form-vacancy/form-vacancy.njk" %}
+		{{ component('button', {
+			className: 'vacancy-form__back-btn _more-link _back',
+			text: 'К вакансии',
+			attr: 'data-vacancy-back'
+		}) }}
+	</div>
+</section>

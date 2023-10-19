@@ -1,0 +1,20 @@
+.page {
+	$this: &;
+	&._home {
+		#{$this}__wrapper {
+			overflow: hidden;
+		}
+		#{$this}__colored-cards {
+			margin-top: rem(150);
+		}
+		#{$this}__section.header {
+			visibility: hidden;
+		}
+
+		@media (max-width: $mobile-lg) {
+			#{$this}__colored-cards {
+				margin-top: rem(100);
+			}
+		}
+	}
+}

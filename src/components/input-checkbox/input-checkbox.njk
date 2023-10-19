@@ -1,0 +1,13 @@
+<label class="input-checkbox{% if props.className %} {{ props.className }}{% endif %}" data-input-checkbox{% if props.attr %} {{ props.attr }}{% endif %}>
+	<input
+		class="input-checkbox__input"
+		type="checkbox"
+		name="{{ props.name }}"
+		value="{{ props.name }}"
+		{% if props.checked %} checked{% endif %}
+		{% if props.inputAttr %} {{ props.inputAttr }}{% endif %}>
+	<span class="input-checkbox__box"></span>
+	{% if props.text %}
+		<span class="input-checkbox__text">{{ props.text | safe }}</span>
+	{% endif %}
+</label>

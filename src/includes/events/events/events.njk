@@ -1,0 +1,50 @@
+{% set eventsList = [
+	{
+		url: '/event',
+		title: 'Хаги-Ваги Новый год',
+		date: '5-6 февраля',
+		imgSrc: 'events/event-3.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#66C5FB'
+	},
+	{
+		url: '/event',
+		title: 'LOVE REPUBLIC переехал',
+		date: '4 февраля',
+		imgSrc: 'events/event-4.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#F9EA48'
+	},
+	{
+		url: '/event',
+		title: 'Новая весенняя коллекция Gloria Jeans',
+		date: '3 февраля',
+		imgSrc: 'events/event-5.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#EF6EC7'
+	},
+	{
+		url: '/event',
+		title: 'Новогодние подарки от&nbsp;SAMSUNG',
+		date: '1 февраля',
+		imgSrc: 'events/event-6.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#54D890'
+	}
+] %}
+
+<section class="page__section events">
+	<div class="events__container container">
+		<ul class="events__list">
+		{% for eventData in eventsList %}
+			<li class="events__item{% if eventData.className %} {{ eventData.className }}{% endif %}">
+				{{ component('event-card', eventData) }}
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+</section>

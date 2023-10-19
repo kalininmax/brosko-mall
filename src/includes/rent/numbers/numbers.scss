@@ -1,0 +1,38 @@
+.numbers {
+	position: relative;
+	&__container {
+		display: grid;
+		grid-template-columns: 5fr 10fr;
+		gap: rem(40) rem(5);
+
+		@media (max-width: $mobile-lg) {
+			grid-template-columns: auto;
+		}
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(5);
+
+		@media (max-width: $mobile-md) {
+			grid-template-columns: auto;
+		}
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(10);
+		padding: rem(10);
+		padding-bottom: rem(5);
+		box-sizing: border-box;
+		min-height: rem(285);
+		background-color: var(--grey);
+		dd {
+			margin-top: auto;
+		}
+
+		@media (max-width: $mobile-only) {
+			min-height: rem(200);
+		}
+	}
+}

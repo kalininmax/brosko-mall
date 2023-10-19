@@ -1,0 +1,40 @@
+{% set vacanciesList2 = [
+	{
+		abbr: 'М',
+		name: 'Мастер по ремонту и заточке ножей в RONIN',
+		tags: ['Неполный день']
+	},
+	{
+		abbr: 'К',
+		name: 'Кассир в Вьетнамское бистро PHO',
+		tags: ['Сменный график', 'от 200 ₽/ч']
+	},
+	{
+		abbr: 'О',
+		name: 'Официант в ресторан Траттория',
+		tags: ['Свободный / посменный график', 'от 50 000 ₽']
+	},
+	{
+		abbr: 'ПК',
+		name: 'Продавец-кассир в магазин New Yorker',
+		tags: ['Полная неделя']
+	},
+	{
+		abbr: 'ПУ',
+		name: 'Повар-универсал в HOTTO RAMEN',
+		tags: ['Сменный график', 'от 180 ₽/ч']
+	}
+] %}
+
+<section class="page__section vacancies">
+	<div class="vacancies__container container">
+		<div class="vacancies__title-wrapper">
+			<h2 class="vacancies__title text-l">вакансии Арендаторов <span class="vacancies__qty">5</span></h2>
+		</div>
+
+		{{ component('vacancies-list', {
+			className: 'vacancies__list',
+			list: vacanciesList2
+		}) }}
+	</div>
+</section>

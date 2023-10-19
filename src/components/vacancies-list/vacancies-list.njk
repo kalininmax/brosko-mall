@@ -1,0 +1,14 @@
+<ul class="vacancies-list text-body-universal{% if props.className %} {{ props.className }}{% endif %}">
+{% for item in props.list %}
+	<li class="vacancies-list__item" style="--vacancy-abbr:'{{ item.abbr }}'">
+		<a class="vacancies-list__link" href="#" data-popup-opener="vacancy">
+			<p class="vacancies-list__item-name">{{ item.name }}</p>
+			<ul class="vacancies-list__tags">
+				{% for tag in item.tags %}
+					<li class="vacancies-list__tag">{{ tag }}</li>
+				{% endfor %}
+			</ul>
+		</a>
+	</li>
+{% endfor %}
+</ul>

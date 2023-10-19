@@ -1,0 +1,71 @@
+{% set featuresImages = [
+	'/assets/images/kids/kids-feature-1.jpg',
+	'/assets/images/kids/kids-feature-2.jpg',
+	'/assets/images/kids/kids-feature-3.jpg',
+	'/assets/images/kids/kids-feature-1.jpg',
+	'/assets/images/kids/kids-feature-2.jpg',
+	'/assets/images/kids/kids-feature-3.jpg'
+] %}
+
+{% set featuresList = [
+	{
+		title: 'Игровое пространство',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	},
+	{
+		title: 'Семейное кафе<br> и&nbsp;детский бар',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	},
+	{
+		title: 'Кондитерская и заказ<br> тортов',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	},
+	{
+		title: 'Мастер-классы и&nbsp;мероприятия',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	},
+	{
+		title: 'Интерактивный парк',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	},
+	{
+		title: 'Организация праздников',
+		text: 'Большое умное игровое пространство для детей всех возрастов. Активные зоны для игр: лабиринты, канатные деревья, горки, улей, пневмопушки и бассейн с более, чем 100 000 шаров. Спокойные занятия: интерактивные панели, бизиборды, конструкторы, карусели. Все то, что очень любят дети.'
+	}
+] %}
+
+<section class="page__section features" data-features>
+	<div class="features__gallery swiper" data-features-gallery>
+		<div class="swiper-wrapper">
+			{% for img in featuresImages %}
+				<div class="swiper-slide">
+					<picture class="features__gallery-picture">
+						<img class="features__gallery-img" src="{{ img }}" width="516" height="688" alt="">
+					</picture>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<ul class="features__list">
+		{% for item in featuresList %}
+			<li class="features__item" data-features-item>
+				<p class="features__item-title text-l">{{ item.title | safe }}</p>
+				<div class="features__item-text">
+					<p>{{ item.text | safe }}</p>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="features__gallery-nav container">
+			{{ component('button', {
+				className: '_slider-nav swiper-button-prev',
+				attr: 'aria-label="Prev"'
+			}) }}
+			{{ component('button', {
+				className: '_slider-nav swiper-button-next',
+				attr: 'aria-label="Next"'
+			}) }}
+		</div>
+</section>

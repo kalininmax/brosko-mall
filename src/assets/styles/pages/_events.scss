@@ -1,0 +1,18 @@
+.page {
+	$this: &;
+	&._events {
+		#{$this}__title {
+			margin-bottom: rem(60);
+		}
+		#{$this}__container {
+			display: grid;
+			row-gap: var(--sections-gap);
+		}
+
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(95);
+			}
+		}
+	}
+}

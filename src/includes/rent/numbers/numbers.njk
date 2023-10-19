@@ -1,0 +1,33 @@
+{% set rentNumbers = [
+	{
+		text: 'Количество магазинов',
+		value: '120+'
+	},
+	{
+		text: 'Площадь торгового центра',
+		value: '80 000 м&sup2;'
+	},
+	{
+		text: 'Залов в новом кинотеатре с IMAX',
+		value: '9'
+	},
+	{
+		text: 'Парковочных мест',
+		value: '800'
+	}
+] %}
+
+<section class="page__section numbers">
+	<div class="numbers__container container">
+		<h2 class="numbers__title text-m-universal-medium uppercase">Особенности Brosco</h2>
+
+		<dl class="numbers__list text-body-universal">
+		{% for number in rentNumbers %}
+			<div class="numbers__item">
+				<dt class="alpha-50">{{ number.text | safe }}</dt>
+				<dd class="text-l">{{ number.value | safe }}</dd>
+			</div>
+		{% endfor %}
+		</dl>
+	</div>
+</section>

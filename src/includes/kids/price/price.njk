@@ -1,0 +1,53 @@
+<section class="page__section price">
+	{{ component('title-img', {
+		className: 'price__title',
+		text: 'Стоимость<br> билетов',
+		img: '/assets/images/kids/kids-price.jpg',
+		imgMobile: '/assets/images/kids/kids-price-mobile.jpg'
+	}) }}
+
+	<div class="price__container container">
+		<div class="price__text">
+			<p>* Дети до одного года проходят бесплатно<br>
+			(При предъявлении подтверждающего документа)</p>
+		</div>
+
+		<div class="price__data">
+			{{ component('table', {
+				title: 'Будни',
+				rows: [
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Безлимит в игровую зону' },
+						{ tag: 'td', className: 'f-bold', text: '590 ₽' }
+					],
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Безлимит в интерактивный парк' },
+						{ tag: 'td', className: 'f-bold', text: '590 ₽' }
+					],
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Общий билет' },
+						{ tag: 'td', className: 'f-bold', text: '900 ₽' }
+					]
+				]
+			}) }}
+
+			{{ component('table', {
+				title: 'Выходные',
+				rows: [
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Безлимит в игровую зону' },
+						{ tag: 'td', className: 'f-bold', text: '990 ₽' }
+					],
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Безлимит в интерактивный парк' },
+						{ tag: 'td', className: 'f-bold', text: '990 ₽' }
+					],
+					[
+						{ tag: 'th', attr: 'scope="row"', text: 'Общий билет' },
+						{ tag: 'td', className: 'f-bold', text: '1490 ₽' }
+					]
+				]
+			}) }}
+		</div>
+	</div>
+</section>

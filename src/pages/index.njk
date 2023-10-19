@@ -1,6 +1,17 @@
 {% extends "../templates/page.njk" %}
 
-{% block mainContent %}
-	{% include "intro/intro.njk" %}
-	{% include "examples/examples.njk" %}
+{% set htmlClassMod = '_home' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "home/intro/intro.njk" %}
+	{% include "home/events/events.njk" %}
+	{% include "home/stores-ticker/stores-ticker.njk" %}
+	{% include "home/commune/commune.njk" %}
+	{% include "home/colored-cards/colored-cards.njk" %}
+	{% include "home/about/about.njk" %}
+	{% include "home/projects/projects.njk" %}
+</main>
+
 {% endblock %}

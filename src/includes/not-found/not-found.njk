@@ -1,0 +1,18 @@
+<div class="not-found">
+	<h1 class="not-found__title text-xl" data-ticker>
+		<span>Ошибка 404</span>
+	</h1>
+
+	<div class="not-found__container">
+		<div class="not-found__text text-body-universal">
+			<p>Запрашиваемая вами страница не найдена.<br>
+			Однако, можно ознакомиться с событиями, которые проходят в Brosco прямо сейчас</p>
+		</div>
+
+		{{ component('button', {
+			className: '_more-link',
+			text: 'Афиша событий',
+			href: '/events'
+		}) }}
+	</div>
+</div>

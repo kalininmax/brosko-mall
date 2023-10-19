@@ -1,0 +1,29 @@
+<article class="project-card{% if props.className %} {{ props.className }}{% endif %}"{% if props.bgColor %} style="--bg-color:{{ props.bgColor }}"{% endif %}>
+	<div class="project-card__content">
+		<p class="project-card__title text-xxl">
+			{% if props.url %}<a href="{{ props.url }}">{% endif %}
+				{% if props.titleTag %}<span class="project-card__title-tag text-m-medium">{{ props.titleTag }}</span>{% endif %}
+				{{ props.title }}
+			{% if props.url %}</a>{% endif %}
+		</p>
+		{% if props.text %}
+			<div class="project-card__text text-body-universal">
+				{{ props.text | safe }}
+				{% if props.buttonText %}
+					{{ component('button', {
+						className: '_more-link _right project-card__button',
+						text: props.buttonText,
+						href: props.buttonHref,
+						attr: props.buttonAttr
+					}) }}
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+
+	{{ component('picture', {
+		className: 'project-card__picture',
+		classNameImg: 'project-card__img full-size-img',
+		src: props.img
+	}) }}
+</article>

@@ -1,0 +1,36 @@
+.page {
+	$this: &;
+	&._stores {
+		#{$this}__container {
+			display: grid;
+			grid-template-columns: auto calc(1045 / 1420 * 100%);
+			gap: rem(36);
+			padding-top: rem(10);
+		}
+		#{$this}__abc-list {
+			position: sticky;
+			top: 33.33dvh;
+			height: fit-content;
+		}
+
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(95);
+			}
+			#{$this}__container {
+				grid-template-columns: auto 1fr;
+			}
+		}
+
+		@media (max-width: $mobile-lg) {
+			#{$this}__container {
+				grid-template-columns: auto;
+				padding-top: rem(20);
+			}
+			#{$this}__abc-list {
+				position: static;
+				transform: none;
+			}
+		}
+	}
+}

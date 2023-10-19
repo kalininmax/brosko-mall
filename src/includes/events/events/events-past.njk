@@ -1,0 +1,155 @@
+{% set eventsListPast = [
+	{
+		url: '/event',
+		title: 'Расписание мастер-классов на февраль',
+		date: '28 января',
+		imgSrc: 'events/event-10.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#66C5FB'
+	},
+	{
+		url: '/event',
+		title: 'Новая капсула белья INVISIBLE от Belle YOU!',
+		date: '23 января',
+		imgSrc: 'events/event-11.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#F9EA48'
+	},
+	{
+		url: '/event',
+		title: 'Анимационное шоу',
+		date: '23 января',
+		imgSrc: 'events/event-12.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#EF6EC7'
+	},
+	{
+		url: '/event',
+		title: 'Открытие месяца: новый магазин модной одежды и аксессуаров LIMÉ',
+		date: '20 января',
+		imgSrc: 'events/event-13.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#54D890'
+	},
+	{
+		url: '/event',
+		title: 'Кулинарные мастер-классы в честь всемирного дня нутеллы',
+		date: '20 января',
+		imgSrc: 'events/event-2.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#5EBBB6'
+	},
+	{
+		url: '/event',
+		title: 'Brosco Loto',
+		date: '18 января',
+		imgSrc: 'events/event-14.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#66C5FB'
+	},
+	{
+		url: '/event',
+		title: 'Время подарков в MIUZ Diamonds!',
+		date: '17 января',
+		imgSrc: 'events/event-15.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#F9EA48'
+	},
+	{
+		url: '/event',
+		title: 'Новинки кинопроката в нашем кинотеатре',
+		date: '15 января',
+		imgSrc: 'events/event-16.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#EF6EC7'
+	},
+	{
+		url: '/event',
+		title: 'До –60% в Belle YOU! Время обновить гардероб!',
+		date: '15 января',
+		imgSrc: 'events/event-17.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#54D890'
+	},
+	{
+		url: '/event',
+		title: 'Фестиваль Brosco Маркет',
+		date: '5-6 февраля',
+		imgSrc: 'events/event-18.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#5EBBB6'
+	},
+	{
+		url: '/event',
+		title: 'Расписание мастер-классов на февраль',
+		date: '28 января',
+		imgSrc: 'events/event-10.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#66C5FB'
+	},
+	{
+		url: '/event',
+		title: 'Новая капсула белья INVISIBLE от Belle YOU!',
+		date: '23 января',
+		imgSrc: 'events/event-11.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#F9EA48'
+	},
+	{
+		url: '/event',
+		title: 'Анимационное шоу',
+		date: '23 января',
+		imgSrc: 'events/event-12.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#EF6EC7'
+	},
+	{
+		url: '/event',
+		title: 'Открытие месяца: новый магазин модной одежды и аксессуаров LIMÉ',
+		date: '20 января',
+		imgSrc: 'events/event-13.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#54D890'
+	},
+	{
+		url: '/event',
+		title: 'Кулинарные мастер-классы в честь всемирного дня нутеллы',
+		date: '20 января',
+		imgSrc: 'events/event-2.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColorImg: '#5EBBB6'
+	}
+] %}
+
+<section class="page__section events">
+	<div class="events__container container">
+		<h2 class="events__title _mb-lg text-l"><span>Прошедшие</span></h2>
+		<ul class="events__list _row-md">
+		{% for eventData in eventsListPast %}
+			<li class="events__item{% if eventData.className %} {{ eventData.className }}{% endif %}">
+				{{ component('event-card', eventData) }}
+			</li>
+		{% endfor %}
+		</ul>
+
+		{{ component('button', {
+			className: '_more-link _down events__more-link',
+			text: 'Показать ещё 15'
+		}) }}
+	</div>
+</section>

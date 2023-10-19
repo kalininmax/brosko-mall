@@ -1,0 +1,66 @@
+<form class="rent-form__form form" data-form>
+	<div class="form__inputs">
+		<fieldset class="form__fieldset">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Личные данные</legend>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'Имя',
+						label: 'Имя',
+						id: 'form-feedback-name',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Телефон',
+						label: 'Телефон',
+						id: 'form-feedback-tel',
+						required: true,
+						inputAttr: 'inputmode="tel"'
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'email',
+						name: 'E-mail',
+						label: 'E-mail',
+						id: 'form-feedback-email',
+						required: true
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+		<fieldset class="form__fieldset">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Текст сообщения</legend>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'textarea',
+						name: 'Текст сообщения',
+						label: 'Текст сообщения',
+						placeholder: 'Введите что-нибудь',
+						id: 'form-feedback-message',
+						required: true
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+
+		<div class="form__checkboxes">
+			{{ component('input-checkbox', {
+				name: 'agreement',
+				text: 'Я согласен на обработку моих <a href="#" target="_blank" rel="nofollow">персональных данных</a> и соглашаюсь с условиями <a href="#" target="_blank" rel="nofollow">Пользовательского соглашения</a>',
+				inputAttr: 'required'
+			}) }}
+		</div>
+	</div>
+
+	<div class="form__bottom">
+		{{ component('button', {
+			className: 'form__submit-btn _full-width _more-link _white',
+			type: 'submit',
+			text: 'Отправить'
+		}) }}
+	</div>
+</form>

@@ -1,0 +1,19 @@
+{% extends "../templates/page.njk" %}
+
+{% block title %}Реклама | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_marketing' %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page__title-wrapper page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Реклама</h1>
+	</div>
+	{% include "marketing/intro-rent/intro-rent.njk" %}
+	{% include "marketing/numbers/numbers.njk" %}
+	{% include "marketing/accordion-marketing/accordion-marketing.njk" %}
+	{% include "marketing/marketing-contacts/marketing-contacts.njk" %}
+</main>
+
+{% endblock %}

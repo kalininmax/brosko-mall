@@ -1,0 +1,12 @@
+<table class="table{% if props.className %} {{ props.className }}{% endif %}">
+	<caption class="table__title">{{ props.title }}</caption>
+	<tbody class="table__body">
+		{% for cells in props.rows %}
+			<tr class="table__row">
+				{% for cell in cells %}
+					<{{ cell.tag }}{% if cell.className %} class="{{ cell.className }}"{% endif %}{% if cell.attr %} {{ cell.attr }}{% endif %}>{{ cell.text }}</{{ cell.tag }}>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

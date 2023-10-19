@@ -1,0 +1,62 @@
+.rent {
+	--padding: #{rem(10)};
+
+	position: relative;
+	display: flex;
+	height: 100%;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(8);
+		padding: var(--padding);
+		width: 100%;
+		overflow: auto;
+		a {
+			&:hover,
+			&:focus-visible {
+				text-decoration: none;
+			}
+		}
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(10);
+		margin-top: auto;
+	}
+	&__item {
+		--bg-color: var(--grey);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: rem(8);
+		padding: rem(15);
+		box-sizing: border-box;
+		min-height: rem(255);
+		background-color: var(--bg-color);
+
+		@media (max-width: $mobile-lg) {
+			min-height: rem(220);
+		}
+	}
+	&__text {
+		padding-right: rem(65);
+		max-width: rem(365);
+		font-size: rem(21);
+		line-height: rem(25);
+		letter-spacing: -0.02em;
+
+		@media (max-width: $mobile-lg) {
+			font-size: rem(16);
+			line-height: rem(20);
+		}
+	}
+	&__item-contacts {
+		display: flex;
+		flex-direction: column;
+		align-self: flex-end;
+		row-gap: rem(15);
+		text-align: end;
+	}
+}

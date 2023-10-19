@@ -1,0 +1,35 @@
+{% extends "../templates/page.njk" %}
+
+{% block title %}Правила ТРК | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_rules' %}
+{% set tocRulesList = [
+	{
+		text: 'Правила ТРК',
+		href: '#mall-rules'
+	},
+	{
+		text: 'Правила парковки',
+		href: '#parking-rules'
+	}
+] %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page__container container cols-15">
+		{{ component('toc', {
+			className: 'page__toc',
+			list: tocRulesList
+		}) }}
+
+		<div id="mall-rules" class="page__title-wrapper page-title-wrapper">
+			<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Правила ТРК</h1>
+		</div>
+
+		{% include "rules/text-content/mall-rules.njk" %}
+		{% include "rules/text-content/parking-rules.njk" %}
+	</div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% set mapsList = [
+	{
+		href: '#store',
+		category: 'store-category',
+		text: 'Adidas'
+	},
+	{
+		href: '#',
+		category: 'cafe-category',
+		text: 'Brosco Market'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'BORK'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Corso Como'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Climber'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Calzedonia'
+	},
+	{
+		href: '#',
+		category: 'service-category',
+		text: 'Dream Aero'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'DNS'
+	},
+	{
+		href: '#',
+		category: 'service-category',
+		text: 'EUROБЫТ'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Nature Republic'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'New Yorker'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'MINISO'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Iddi Shop'
+	},
+	{
+		href: '#',
+		category: 'store-category',
+		text: 'Swarovski'
+	}
+] %}
+
+{% set floorsList = ['0', '1', '2', '3'] %}
+
+<div class="map">
+	<div class="page__title-wrapper page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Карта</h1>
+	</div>
+	<div class="map__container container cols-15">
+		<div class="map__list-wrapper">
+			<section class="map__floor-list" id="floor-0">
+				<h2 class="map__title text-l">0 этаж</h2>
+				<ul class="map__list text-m-universal-medium uppercase">
+				{% for item in mapsList %}
+					<li class="map__item" data-map-list-item="{{ item.category }}">
+						<a class="map__link" href="#" data-popup-opener="store" data-floor="0">{{ item.text }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</section>
+
+			<section class="map__floor-list" id="floor-1">
+				<h2 class="map__title text-l">1 этаж</h2>
+				<ul class="map__list text-m-universal-medium uppercase">
+				{% for item in mapsList %}
+					<li class="map__item" data-map-list-item="{{ item.category }}">
+						<a class="map__link" href="{{ item.href }}" data-popup-opener="store" data-floor="1">{{ item.text }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</section>
+
+			<section class="map__floor-list" id="floor-2">
+				<h2 class="map__title text-l">2 этаж</h2>
+				<ul class="map__list text-m-universal-medium uppercase">
+				{% for item in mapsList %}
+					<li class="map__item" data-map-list-item="{{ item.category }}">
+						<a class="map__link" href="#" data-popup-opener="store" data-floor="2">{{ item.text }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</section>
+
+			<section class="map__floor-list" id="floor-3">
+				<h2 class="map__title text-l">3 этаж</h2>
+				<ul class="map__list text-m-universal-medium uppercase">
+				{% for item in mapsList %}
+					<li class="map__item" data-map-list-item="{{ item.category }}">
+						<a class="map__link" href="#" data-popup-opener="store" data-floor="3">{{ item.text }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</section>
+		</div>
+
+		<div class="map__map-wrapper" data-map="mall">
+			<div class="map__map-container" data-map-container>
+				<div class="map__img-container" data-map-img-container>
+						<img src="/assets/images/map/floor-0.svg" alt="" data-map-img>
+						<img src="/assets/images/map/floor-1.svg" alt="" data-map-img>
+						<img src="/assets/images/map/floor-2.svg" alt="" data-map-img>
+						<img src="/assets/images/map/floor-3.svg" alt="" data-map-img>
+				</div>
+			</div>
+
+			<ul class="map__zoom">
+				<li>
+					{{ component('button', {
+						className: '_map-control _black',
+						iconName: 'minus',
+						iconAttr: 'width="60" height="60"',
+						attr: 'aria-label="Уменьшить" data-map-zoom="-"'
+					}) }}
+				</li>
+				<li>
+					{{ component('button', {
+						className: '_map-control _black',
+						iconName: 'plus',
+						iconAttr: 'width="60" height="60"',
+						attr: 'aria-label="Увеличить" data-map-zoom="+"'
+					}) }}
+				</li>
+			</ul>
+
+			<ul class="map__floor">
+			{% for floorNumber in floorsList %}
+				<li>
+					{{ component('button', {
+						className: '_map-control _white',
+						text: floorNumber,
+						attr: 'data-map-floor="' + floorNumber +'"'
+					}) }}
+				</li>
+			{% endfor %}
+			</ul>
+
+			{{ component('button', {
+				className: 'map__more-btn _full-width _more _center',
+				href: '#',
+				text: 'Подробнее',
+				attr: 'data-map-more-link'
+			}) }}
+		</div>
+	</div>
+</div>

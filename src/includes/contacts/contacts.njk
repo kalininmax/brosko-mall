@@ -1,0 +1,89 @@
+<section class="page__section contacts">
+	<div class="contacts__container container text-body-universal">
+		<div class="contacts__intro">
+			<div class="contacts__address">
+				<p class="contacts__subtitle">Адрес</p>
+				<p class="contacts__address-text text-m-universal-medium uppercase">
+					68006, Хабаровск, ул. Пионерская, 2В
+				</p>
+			</div>
+
+			<div class="contacts__hours">
+				<p class="contacts__subtitle">График работы</p>
+				<dl class="contacts__hours-list text-m-universal-medium uppercase">
+					<div class="contacts__hours-item">
+						<dt>Торговый зал</dt>
+						<dd>10:00 – 22:00</dd>
+					</div>
+					<div class="contacts__hours-item">
+						<dt>Brosco маркет</dt>
+						<dd>09:00 – 23:00</dd>
+					</div>
+					<div class="contacts__hours-item">
+						<dt>Кинотеатр</dt>
+						<dd>09:00 – 02:00</dd>
+					</div>
+				</dl>
+			</div>
+
+			{{ component('button', {
+				className: '_more-link _plus contacts__open-form-btn',
+				text: 'Заявка на аренду',
+				attr: 'data-popup-opener="feedback-form"'
+			}) }}
+		</div>
+
+		<div class="contacts__content">
+			<table class="contacts__table">
+					<tbody>
+						<tr>
+							<th class="text-body-universal" scope="row">По всем вопросам</th>
+							<td>
+								<span>Администратор ТЦ</span>
+								<a class="text-m-universal-medium uppercase" href="mailto:admin@broskomall.com">admin@broskomall.com</a>
+								<a class="tel text-m-universal-medium uppercase" href="tel:8(924)400-39-69">8 (924) 400-39-69</a>
+							</td>
+						</tr>
+						<tr>
+							<th class="text-body-universal" scope="row">Исполнительный директор</th>
+							<td>
+								<span>Ксения Руденко</span>
+								<a class="text-m-universal-medium uppercase" href="mailto:ragimova.k@dv-nevada.ru">ragimova.k@dv-nevada.ru</a>
+							</td>
+						</tr>
+						<tr>
+							<th class="text-body-universal" scope="row">Руководитель коммерческого отдела</th>
+							<td>
+								<span>Инна Анисимова</span>
+								<a class="text-m-universal-medium uppercase" href="mailto:anisimova.i@dv-nevada.ru">anisimova.i@dv-nevada.ru</a>
+							</td>
+						</tr>
+						<tr>
+							<th class="text-body-universal" scope="row">Маркетолог</th>
+							<td>
+								<span>Татьяна Шевкина</span>
+								<a class="text-m-universal-medium uppercase" href="mailto:shevkina.t@dv-nevada.ru">shevkina.t@dv-nevada.ru</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			<div class="contacts__socials">
+				<p class="contacts__subtitle">Социальные сети</p>
+				<ul class="text-m-universal-medium uppercase">
+					<li><a href="#" target="_blank" rel="nofollow">Telegram</a></li>
+					<li><a href="#" target="_blank" rel="nofollow">ВКонтакте</a></li>
+					<li><a href="#" target="_blank" rel="nofollow">YouTube</a></li>
+				</ul>
+			</div>
+
+
+			<div class="contacts__map">
+				<picture class="contacts__map-placeholder">
+					<img class="full-size-img" src="/assets/images/contacts/contacts-map.png" width="660" height="385" alt="">
+				</picture>
+				<div class="contacts__map-container" data-map="ya" data-longitude="135.079222" data-latitude="48.462181"></div>
+			</div>
+		</div>
+	</div>
+</section>

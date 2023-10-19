@@ -1,0 +1,61 @@
+.intro-rent {
+	$this: &;
+
+	position: relative;
+	&__container {
+		display: flex;
+		gap: rem(40) rem(25);
+		margin-inline-start: 0;
+
+		@media (max-width: $mobile-only) {
+			flex-direction: column;
+			margin-inline-end: var(--container-padding);
+			width: auto;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		order: 2;
+		padding-block: rem(42);
+		max-width: rem(360);
+		p + p {
+			margin-top: rem(20);
+		}
+		._marketing & {
+			padding-block: rem(60);
+		}
+
+		@media (max-width: $desktop-md) {
+			max-width: rem(280);
+		}
+
+		@media (max-width: $mobile-only) {
+			margin-inline-start: var(--container-padding);
+			padding-block: 0;
+			._marketing & {
+				padding-block: 0;
+			}
+		}
+	}
+	&__cover {
+		margin: 0;
+		width: calc(955 / 1440 * 100vw);
+
+		@media (max-width: $mobile-only) {
+			width: 100%;
+		}
+	}
+	.slider__picture {
+		position: relative;
+		display: block;
+		padding-bottom: calc(670 / 955 * 100%);
+		width: calc(955 / 1440 * 100vw);
+
+		@media (max-width: $mobile-only) {
+			padding-bottom: calc(263 / 365 * 100%);
+			width: 100%;
+		}
+	}
+}

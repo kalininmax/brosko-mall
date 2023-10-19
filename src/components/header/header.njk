@@ -1,10 +1,131 @@
-<header class="header{% if props.className %} {{ props.className }}{% endif %}">
-	<div class="header__container container">
-		{{ component('icon', {
-			iconName: '11ty',
-			attr: 'width="72" height="72"',
-			className: 'header__logo'
+<header class="page__section header{% if props.className %} {{ props.className }}{% endif %}" data-header>
+	{{ component('menu', { className: 'header__menu' }) }}
+
+	{% if props.storesFilter %}
+		{{ component('select', {
+			id: 'stores-categories-header',
+			name: 'stores-categories',
+			className: 'header__filter _header-filter',
+			attr: 'data-header-filter header-slide-down',
+			options: [
+				{ value: 'all', text: 'Все магазины (158)' },
+				{ value: 'Одежда', text: 'Одежда (61)' },
+				{ value: 'Электроника и техника', text: 'Электроника и техника (4)' },
+				{ value: 'Бытовые товары', text: 'Бытовые товары (13)' },
+				{ value: 'Обувь', text: 'Обувь (6)' },
+				{ value: 'Оптика', text: 'Оптика (2)' },
+				{ value: 'Музыкальные инструменты', text: 'Музыкальные инструменты (4)' },
+				{ value: 'Продукты питания', text: 'Продукты питания (19)' },
+				{ value: 'Развлечения', text: 'Развлечения (21)' },
+				{ value: 'Товары для дома', text: 'Товары для дома (12)' },
+				{ value: 'Украшения и часы', text: 'Украшения и часы (8)' }
+			]
 		}) }}
-		<p class="header__title">Header</p>
-	</div>
+	{% endif %}
+
+	{% if props.foodFilter %}
+		{{ component('select', {
+			id: 'food-categories-header',
+			name: 'food-categories',
+			className: 'header__filter _header-filter',
+			attr: 'data-header-filter header-slide-down',
+			options: [
+				{ value: 'all', text: 'Вся еда (23)' },
+				{ value: 'Итальянская кухня', text: 'Итальянская кухня (1)' },
+				{ value: 'Гастробары', text: 'Гастробары (1)' },
+				{ value: 'Японская кухня', text: 'Японская кухня (4)' },
+				{ value: 'Кофейни', text: 'Кофейни (6)' },
+				{ value: 'Пиццерия', text: 'Пиццерии (1)' },
+				{ value: 'Стритфуд', text: 'Стритфуд (4)' },
+				{ value: 'Корейская кухня', text: 'Корейская кухня (2)' },
+				{ value: 'Органик-бар', text: 'Органик-бар (1)' },
+				{ value: 'Азербайджанская кухня', text: 'Азербайджанская кухня (1)' }
+			]
+		}) }}
+	{% endif %}
+
+	{% if props.ticketsLink %}
+		{{ component('button', {
+			className: '_more-link _header-link _full-width header__link',
+			text: 'Купить билеты',
+			href: '#',
+			attr: 'target="_blank" rel="nofollow" header-slide-down'
+		}) }}
+	{% endif %}
+
+	{% if props.telLink %}
+		{{ component('button', {
+			className: '_header-link _full-width _tel header__link',
+			text: '8 (4212) 931-00-88',
+			href: 'tel:8(4212)931-00-88',
+			attr: 'rel="nofollow" header-slide-down'
+		}) }}
+	{% endif %}
+
+	{% if props.rentLink %}
+		{{ component('button', {
+			className: '_header-link _full-width _plus header__link',
+			text: 'Арендовать',
+			attr: 'header-slide-down data-popup-opener="rent"'
+		}) }}
+	{% endif %}
+
+	{% if props.rentFormLink %}
+		{{ component('button', {
+			className: '_header-link _full-width _plus header__link',
+			text: 'Оставить заявку',
+			attr: 'header-slide-down data-popup-opener="rent-form"'
+		}) }}
+	{% endif %}
+
+	{% if props.resumeFormLink %}
+		{{ component('button', {
+			className: '_header-link _full-width _plus header__link',
+			text: 'Оставить резюме',
+			attr: 'header-slide-down data-popup-opener="vacancy-form"'
+		}) }}
+	{% endif %}
+
+	{% if props.feedbackFormLink %}
+		{{ component('button', {
+			className: '_header-link _full-width _plus header__link',
+			text: 'Написать нам',
+			attr: 'header-slide-down data-popup-opener="feedback-form"'
+		}) }}
+	{% endif %}
+
+	{% if props.mapFilter %}
+		<div class="header__filter-wrapper" header-slide-down data-map-filter="header">
+			{{ component('button', {
+				className: '_header-link _filter _reverse _full-width _center',
+				text: 'Магазины',
+				attr: 'data-map-filter-button="store-category"'
+			}) }}
+			{{ component('button', {
+				className: '_header-link _filter _reverse _full-width _center',
+				text: 'Еда',
+				attr: 'data-map-filter-button="cafe-category"'
+			}) }}
+			{{ component('button', {
+				className: '_header-link _filter _reverse _full-width _center',
+				text: 'Услуги',
+				attr: 'data-map-filter-button="service-category"'
+			}) }}
+		</div>
+	{% endif %}
+
+	{% if props.eventsFilter %}
+		{{ component('select', {
+			id: 'events-categories-header',
+			name: 'events-categories',
+			className: 'header__filter _header-filter',
+			attr: 'data-header-filter header-slide-down',
+			options: [
+				{ value: 'all', text: 'Все события (521)' },
+				{ value: 'Мастер-класс', text: 'Мастер-класс (22)' },
+				{ value: 'Распродажа', text: 'Распродажа (37)' },
+				{ value: 'Лекция', text: 'Лекция (4)' }
+			]
+		}) }}
+	{% endif %}
 </header>

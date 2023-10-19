@@ -1,0 +1,18 @@
+.rent-form {
+	--padding: #{rem(10)};
+
+	position: relative;
+	display: flex;
+	height: 100%;
+	&__container {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		padding: var(--padding);
+		padding-bottom: 0;
+		overflow: auto;
+	}
+	&__form {
+		flex-grow: 1;
+	}
+}

@@ -1,0 +1,24 @@
+{% extends "../templates/food-page.njk" %}
+
+{% block title %}Еда | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_food' %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Еда</h1>
+	</div>
+	<div class="page__container container">
+		{% include "food/food-list/food-list.njk" %}
+	</div>
+</main>
+
+{{ component('button', {
+	href: '/map#cafe-category',
+	text: 'На карте',
+	className: 'page__button button _fixed'
+}) }}
+
+{% endblock %}

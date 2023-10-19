@@ -1,0 +1,74 @@
+.input-checkbox {
+	$this: &;
+	--size: #{rem(25)};
+	--gap: #{rem(10)};
+	--tick-size: #{rem(15)};
+	--bg: var(--grey);
+	--border: 1px solid transparent;
+
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--gap);
+	user-select: none;
+	* {
+		cursor: pointer;
+	}
+	&:hover {
+		--border: 1px solid #{rgba($black, 0.3)};
+	}
+	&._error {
+		--border: 1px solid var(--red);
+	}
+	&__box {
+		flex-shrink: 0;
+		box-sizing: border-box;
+		width: var(--size);
+		height: var(--size);
+		border: var(--border);
+		border-radius: 0;
+		background: var(--bg);
+		background-position: center;
+		background-size: var(--tick-size);
+		background-repeat: no-repeat;
+		transition: background-color $fast-transition-duration $default-transition-function,
+			border $fast-transition-duration $default-transition-function;
+	}
+	&__text {
+		@include text-sm-input-universal;
+		a {
+			color: var(--pink);
+			text-decoration: none;
+			&:hover,
+			&:focus-visible {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translateX(20%);
+		width: var(--size);
+		height: var(--size);
+		opacity: 0;
+		pointer-events: none;
+	}
+	&__input:checked + &__box {
+		--bg: var(--orange-light) #{inline('tick.svg')};
+	}
+	&:hover &__input:not([disabled]):checked + &__box {
+		--bg: var(--orange-light-100) #{inline('tick.svg')};
+		--border: 1px solid transparent;
+	}
+	&__input:focus-visible + &__box {
+		--bg: var(--orange-light-100);
+	}
+	&__input[disabled] ~ * {
+		pointer-events: none;
+	}
+	&__input[disabled] + &__box {
+		opacity: 0.5;
+	}
+}

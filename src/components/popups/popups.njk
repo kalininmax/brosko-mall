@@ -1,0 +1,14 @@
+<div class="popups" data-popups>
+	{% for popup in props.list %}
+		<div class="popups__popup{% if popup.closeColor %} _{{ popup.closeColor }}{% endif %}" data-popup="{{ popup.name }}" data-popup-pos="{{ popup.pos }}" data-popup-open-animation="slideIn" data-popup-close-animation="slideOut">
+			{% include './popups-' + popup.name + '.njk' %}
+			<button class="popups__close-button" type="button" data-popup-closer>
+				{{ component('icon', {
+					iconName: "close",
+					className: "popups__close-icon",
+					attr: 'width="24" height="24"'
+				}) }}
+			</button>
+		</div>
+	{% endfor %}
+</div>

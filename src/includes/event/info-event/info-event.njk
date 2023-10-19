@@ -1,0 +1,49 @@
+{% set eventProperties = [
+	{
+		name: 'Локация',
+		value: 'Lime'
+	},
+	{
+		name: 'Тип',
+		value: 'Мероприятие'
+	},
+	{
+		name: 'Дата',
+		value: '20 января'
+	},
+	{
+		name: 'Место проведения',
+		value: '1 этаж'
+	}
+] %}
+
+<section class="page__section info-event">
+	<div class="info-event__container container">
+		<dl class="info-event__properties text-body-universal">
+		{% for property in eventProperties %}
+			<div class="info-event__property">
+				<dt>{{ property.name }}</dt>
+				<dt class="text-m-universal-medium uppercase">{{ property.value }}</dt>
+			</div>
+		{% endfor %}
+		</dl>
+
+		<div class="info-event__content text-body-universal">
+			<h2>Магазин модной одежды, обуви и аксессуаров LIMÉ открылся на первом этаже ТРЦ «Броско Молл»</h2>
+
+			<p>В пространстве площадью 1300 квадратных метров уже можно найти главные тренды весны и комфортную базу на каждый день: одежду, обувь, нижнее белье и аксессуары, а также модели для спорта и отдыха.<br>
+			Дизайн магазина воплотил в себе актуальные тренды оформления торговых залов — минимализм, обтекаемые формы, сочетание разных текстур и материалов. Просторные примерочные с мягкой подсветкой и большими зеркалами сделают шопинг более комфортным.</p>
+
+			<p><b>Новинки поступают каждую неделю.</b></p>
+
+			<p>Подробная информация <a href="#" target="_blank" rel="nofollow"><b>на сайте</b></a> или у сотрудников магазина.</p>
+
+			{{ component('button', {
+				className: '_more-link _right info-event__more-link',
+				text: 'Зарегистрироваться',
+				href: '#',
+				attr: 'target="_blank" rel="nofollow"'
+			}) }}
+		</div>
+	</div>
+</section>

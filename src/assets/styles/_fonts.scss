@@ -1,7 +1,12 @@
-/* Use Google Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic)
-or
-@include font-face("Samplina Neue", "../fonts/SamplinaNeue"); */
+@font-face {
+	font-family: 'ABC Gravity Cyrillic';
+	font-weight: 900;
+	font-style: normal;
+	font-display: block;
+	src: inline('../fonts/ABCGravityCyrillic-XXCompressed-Trial.woff2') format('woff2');
+}
 
-@include font-face('Roboto', '../fonts/Roboto-Regular', 400, normal, woff2 woff);
-@include font-face('Roboto', '../fonts/Roboto-Bold', 700, normal, woff2 woff);
+@include font-face('Cofo Sans', '../fonts/CoFoSans-Medium', 500, normal, woff2 woff);
+@include font-face('Cofo Sans', '../fonts/CoFoSans-Regular', 400, normal, woff2 woff);
+@include font-face('Stem-Regular', '../fonts/Stem-Regular', 400, normal, woff2 woff);
+@include font-face('Stem-Medium', '../fonts/Stem-Medium', 400, normal, woff2 woff);

@@ -1,0 +1,122 @@
+.about {
+	position: relative;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: rem(20);
+
+	@media (max-width: $mobile-only) {
+		grid-template-columns: auto;
+	}
+	&__title-wrapper {
+		display: grid;
+		align-content: space-between;
+		gap: rem(10);
+		padding-bottom: rem(60);
+
+		@media (max-width: $laptop-md) {
+			padding-bottom: 0;
+		}
+
+		@media (max-width: $mobile-only) {
+			grid-area: 1/1/-1/-1;
+		}
+	}
+	&__title {
+		margin-bottom: 0;
+	}
+	&__text {
+		margin-inline-start: rem(20);
+		max-width: rem(367);
+		letter-spacing: 0;
+
+		@media (max-width: $desktop-md) {
+			margin-inline-start: rem(10);
+			max-width: rem(270);
+		}
+
+		@media (max-width: $mobile-only) {
+			padding-top: 85%;
+			max-width: rem(300);
+		}
+	}
+	&__gallery {
+		display: grid;
+		padding-top: rem(286);
+		padding-inline-end: rem(10);
+
+		@media (max-width: $desktop-sm) {
+			margin-inline-start: -14%;
+
+			@include smoothValue('padding-top', 83px, 286px, $mobile-lg, $desktop-sm);
+		}
+
+		@media (max-width: $laptop-sm) {
+			margin-inline-start: -40%;
+		}
+
+		@media (max-width: $mobile-only) {
+			grid-area: 1/1/-1/-1;
+			margin-inline-start: 0;
+			padding-inline-start: rem(10);
+		}
+	}
+	&__picture {
+		position: relative;
+		transition: transform $default-transition-duration $default-transition-function;
+		will-change: transform;
+		&:nth-of-type(1) {
+			z-index: 2;
+			grid-row: 1/-1;
+			grid-column: 1/-1;
+			padding-bottom: 45%;
+			width: 72.5%;
+			height: 0;
+		}
+		&:nth-of-type(2) {
+			z-index: 3;
+			grid-row: 1/-1;
+			grid-column: 1/-1;
+			justify-self: end;
+			margin-top: -15%;
+			margin-inline-end: 18%;
+			padding-bottom: 39%;
+			width: 28%;
+			height: 0;
+		}
+		&:nth-of-type(3) {
+			grid-row: 1/-1;
+			grid-column: 1/-1;
+			justify-self: end;
+			margin-top: 7%;
+			padding-bottom: 52.3%;
+			width: 36.4%;
+			height: 0;
+		}
+		&:hover {
+			z-index: 5;
+			transform: scale(1.1);
+		}
+
+		@media (max-width: $desktop-sm) {
+			&:nth-of-type(3) {
+				margin-top: 10%;
+			}
+		}
+
+		@media (max-width: $mobile-only) {
+			&:nth-of-type(1) {
+				padding-bottom: 56%;
+				width: 90%;
+			}
+			&:nth-of-type(2) {
+				margin-top: -17%;
+				margin-inline-end: 20%;
+				width: 29%;
+			}
+			&:nth-of-type(3) {
+				margin-top: 34.5%;
+				padding-bottom: 53.5%;
+			}
+		}
+	}
+}

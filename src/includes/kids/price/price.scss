@@ -1,0 +1,33 @@
+.price {
+	position: relative;
+	&__container {
+		display: grid;
+		grid-template-columns: 8fr 7fr;
+		gap: rem(5);
+
+		@media (max-width: $mobile-lg) {
+			grid-template-columns: auto;
+			gap: rem(80);
+		}
+	}
+	&__title {
+		margin-bottom: rem(10);
+		.space + .word-wrapper {
+			margin-inline-start: -0.4ch;
+		}
+	}
+	&__text {
+		grid-column: 1/-1;
+		line-height: rem(20);
+	}
+	&__data {
+		display: flex;
+		grid-column: 2/3;
+		flex-direction: column;
+		row-gap: rem(80);
+
+		@media (max-width: $mobile-lg) {
+			grid-column: auto;
+		}
+	}
+}

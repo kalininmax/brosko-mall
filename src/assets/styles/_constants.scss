@@ -1,26 +1,82 @@
-@import 'lib/mixins';
-
 $default-transition-duration: 0.3s;
 $fast-transition-duration: 0.15s;
 $default-transition-function: ease-out;
 
-$desktop-lg: 1920px;
-$desktop-md: 1440px;
+// ======= BREAKPOINTS =======
+$desktop: 1920px;
+$desktop-md: 1681px;
+$desktop-sm: 1440px;
+$laptop-md: 1280px;
+$laptop: 1024px;
+$laptop-sm: 992px;
+$tablet: 768px;
+$mobile-only: 767px;
 $mobile-lg: 640px;
-$mobile-sm: 320px;
+$mobile-md: 425px;
+$mobile: 375px;
+$mobile-sm: 374px;
 
-html {
-	--white: #fff;
-	--black: #000;
-	--teal: #5ab9c1;
-	--light-grey: #ddd;
+// ======= COLORS =======
+$white: #fff;
+$black: #000;
+$black-light: #151515;
+$grey: #f3f3f3;
+$grey-2: #e7e7e7;
+$grey-light: #fafafa;
+$red: #f00;
+$red-dark: #bd4b49;
+$orange: #ff7749;
+$orange-100: #f0790b;
+$orange-light: #ff922e;
+$orange-light-100: #ffaf65;
+$blue: #66c5fb;
+$yellow: #f4e147;
+$yellow-light: #f9ea48;
+$yellow-dark: #f1cd80;
+$pink: #ef6ec7;
+$green: #54d890;
+$purple: #afa7c9;
+$light-purple: #d3b3f6;
+$turquoise: #5ebbb6;
 
+:root {
+	// ======= FONTS =======
+	--ff-gravity: 'ABC Gravity Cyrillic', 'Arial', sans-serif;
+	--ff-cofo: 'Cofo Sans', 'Arial', sans-serif;
+
+	// ======= COLORS =======
+	--white: #{$white};
+	--black: #{$black};
+	--black-light: #{$black-light};
+	--grey: #{$grey};
+	--grey-2: #{$grey-2};
+	--grey-light: #{$grey-light};
+	--red: #{$red};
+	--red-dark: #{$red-dark};
+	--orange: #{$orange};
+	--orange-100: #{$orange-100};
+	--orange-light: #{$orange-light};
+	--orange-light-100: #{$orange-light-100};
+	--blue: #{$blue};
+	--yellow: #{$yellow};
+	--yellow-light: #{$yellow-light};
+	--yellow-dark: #{$yellow-dark};
+	--pink: #{$pink};
+	--green: #{$green};
+	--purple: #{$purple};
+	--light-purple: #{$light-purple};
+	--turquoise: #{$turquoise};
+
+	// ======= DEFAULTS =======
+	--default-font-family: var(--ff-cofo);
+	--default-font-size: 1.125rem; // 18px
+	--default-line-height: 1.25rem; // 20px
+	--default-font-weight: 400;
+	--default-text-color: var(--black);
 	--default-bg-color: var(--white);
 
-	--container-max-width: #{rem(1400)};
-	--container-padding: #{rem(40)};
-
-	@media (width < $mobile-lg) {
-		--container-padding: #{rem(16)};
+	@media (max-width: $desktop-md) {
+		--default-font-size: 0.875rem; // 14px
+		--default-line-height: 0.9375rem; // 15px
 	}
 }

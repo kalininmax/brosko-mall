@@ -1,0 +1,47 @@
+.vacancies {
+	position: relative;
+	& + & {
+		margin-top: rem(100);
+
+		@media (width <= 585px) {
+			margin-top: rem(52);
+		}
+	}
+	&__title {
+		@media (width <= 585px) {
+			display: inline-block;
+			max-width: rem(200);
+		}
+	}
+	&__title-wrapper {
+		padding-block: rem(8);
+		border-bottom: 1px solid rgba($black, 0.1);
+	}
+	&__qty {
+		display: inline-block;
+		margin-inline-start: -0.7em;
+		padding-inline: rem(5);
+		border-radius: 100vmax;
+		background-color: var(--black);
+		color: var(--white);
+		font-family: var(--default-font-family);
+		font-size: rem(10);
+		line-height: rem(15);
+		font-weight: 500;
+		vertical-align: top;
+		transform: translateY(-50%);
+		letter-spacing: -0.02em;
+
+		@media (width <= 585px) {
+			margin-inline-start: -0.4em;
+		}
+	}
+	&__list {
+		margin-inline-start: auto;
+		max-width: 40%;
+
+		@media (max-width: $desktop-md) {
+			max-width: rem(565);
+		}
+	}
+}

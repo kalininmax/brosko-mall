@@ -1,0 +1,62 @@
+.stores-ticker {
+	padding-block: rem(150);
+	background-color: var(--grey);
+
+	@media (max-width: $mobile-lg) {
+		padding-block: rem(100);
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+	&__title {
+		margin-bottom: rem(80);
+		text-align: center;
+		font-size: rem(18);
+		line-height: rem(20);
+		font-weight: 400;
+		letter-spacing: -0.02em;
+
+		@media (max-width: $desktop-md) {
+			font-size: rem(14);
+			line-height: rem(15);
+		}
+
+		@media (max-width: $mobile-lg) {
+			margin-bottom: rem(93);
+		}
+	}
+	&__list-wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(20);
+		overflow: hidden;
+
+		@media (max-width: $mobile-lg) {
+			row-gap: rem(4);
+		}
+	}
+	&__list {
+		&:nth-child(2) {
+			--ticker-time: 12s;
+		}
+
+		@media (max-width: $mobile-lg) {
+			padding-top: 0.1em;
+		}
+	}
+	&__link {
+		text-decoration: none;
+		transition: color $fast-transition-duration $default-transition-function;
+		&:hover {
+			color: var(--blue);
+		}
+	}
+	&__more-link {
+		margin-top: rem(80);
+
+		@media (max-width: $mobile-lg) {
+			margin-top: rem(100);
+		}
+	}
+}

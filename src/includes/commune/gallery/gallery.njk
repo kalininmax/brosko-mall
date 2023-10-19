@@ -1,0 +1,48 @@
+{% set galleryImages = [
+	{
+		className: '_landscape',
+		src: 'commune/cummune-gallery-1.jpg',
+		width: '565',
+		height: '423'
+	},
+	{
+		className: '_portrait',
+		src: 'commune/cummune-gallery-2.jpg',
+		width: '470',
+		height: '627'
+	},
+	{
+		className: '_landscape',
+		src: 'commune/cummune-gallery-3.jpg',
+		width: '565',
+		height: '353'
+	},
+	{
+		className: '_portrait',
+		src: 'commune/cummune-gallery-2.jpg',
+		width: '470',
+		height: '627'
+	},
+	{
+		className: '_landscape',
+		src: 'commune/cummune-gallery-1.jpg',
+		width: '565',
+		height: '353'
+	},
+	{
+		className: '_portrait',
+		src: 'commune/cummune-gallery-2.jpg',
+		width: '470',
+		height: '627'
+	}
+] %}
+
+<section class="page__section">
+	<div class="container">
+		<h2 class="section-title _xs _gallery"><span>Галерея</span></h2>
+	</div>
+
+	{{ component('gallery', {
+		images: galleryImages
+	}) }}
+</section>

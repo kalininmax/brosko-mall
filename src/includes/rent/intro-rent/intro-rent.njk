@@ -1,0 +1,33 @@
+{% set rentCoverImages = [
+	{
+		src: '/assets/images/rent/rent-cover.jpg',
+		width: 955,
+		height: 670
+	},
+	{
+		src: '/assets/images/rent/rent-cover.jpg',
+		width: 955,
+		height: 670
+	},
+	{
+		src: '/assets/images/rent/rent-cover.jpg',
+		width: 955,
+		height: 670
+	}
+] %}
+
+<section class="page__section intro-rent">
+	<div class="intro-rent__container container">
+		<div class="intro-rent__content text-body-universal">
+			<p>«Броско Молл» — это новая концепция шопинга, ориентированная на впечатления и удовольствие от процесса потребления.</p>
+			<p>Разместите свой бизнес в центре событий и получите максимальный приток клиентов.</p>
+		</div>
+
+		{{ component('slider', {
+			className: 'intro-rent__cover',
+			images: rentCoverImages,
+			pagination: true,
+			autoplay: true
+		}) }}
+	</div>
+</section>

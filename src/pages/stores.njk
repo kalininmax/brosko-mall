@@ -1,0 +1,25 @@
+{% extends "../templates/stores-page.njk" %}
+
+{% block title %}Магазины | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_stores' %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Магазины</h1>
+	</div>
+	<div class="page__container container">
+		{{ component('abc-list', { className: 'page__abc-list' }) }}
+		{% include "stores/stores-list/stores-list.njk" %}
+	</div>
+</main>
+
+{{ component('button', {
+	href: '/map#store-category',
+	text: 'На карте',
+	className: 'page__button button _fixed'
+}) }}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+.page {
+	$this: &;
+	&._contacts {
+		#{$this}__title-wrapper {
+			position: relative;
+			z-index: 2;
+			margin-bottom: rem(40);
+		}
+
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(130);
+			}
+		}
+
+		@media (max-width: $laptop-sm) {
+			#{$this}__title-wrapper {
+				margin-bottom: rem(80);
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+.cta {
+	position: relative;
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(15, 1fr);
+		gap: rem(5);
+		padding: rem(10);
+		box-sizing: border-box;
+		background-color: var(--yellow);
+
+		@media (max-width: $mobile-only) {
+			grid-template-columns: auto;
+			padding-bottom: rem(20);
+		}
+	}
+	&__title {
+		grid-column: 1/-1;
+		margin-bottom: rem(198);
+
+		@media (max-width: $mobile-only) {
+			margin-bottom: rem(115);
+		}
+	}
+	&__person {
+		grid-row: 2/3;
+		grid-column: 1 / -1;
+		margin-bottom: rem(10);
+
+		@media (max-width: $mobile-only) {
+			grid-row: auto;
+			margin-bottom: rem(20);
+		}
+	}
+	&__contacts {
+		display: flex;
+		grid-row: 3/4;
+		grid-column: 3 / span 6;
+		flex-direction: column;
+		row-gap: rem(15);
+		margin-inline-start: rem(-5);
+		a:hover,
+		a:focus-visible {
+			text-decoration: none;
+		}
+
+		@media (max-width: $mobile-only) {
+			grid-row: auto;
+			grid-column: 1 / -1;
+			margin-inline-start: 0;
+		}
+	}
+	&__button {
+		grid-row: 3/4;
+		grid-column: span 6 / -1;
+		place-self: start end;
+
+		@media (max-width: $mobile-only) {
+			grid-row: auto;
+			grid-column: 1 / -1;
+			margin-top: rem(230);
+		}
+	}
+}

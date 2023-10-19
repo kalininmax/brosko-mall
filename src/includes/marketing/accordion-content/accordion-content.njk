@@ -1,0 +1,87 @@
+{% set outsideFlagsMap = [
+	{
+		src: '/assets/images/marketing/outside-flags-map.png',
+		width: 544,
+		height: 347
+	},
+	{
+		src: '/assets/images/marketing/outside-flags-map.png',
+		width: 544,
+		height: 347
+	},
+	{
+		src: '/assets/images/marketing/outside-flags-map.png',
+		width: 544,
+		height: 347
+	},
+	{
+		src: '/assets/images/marketing/outside-flags-map.png',
+		width: 544,
+		height: 347
+	}
+] %}
+
+<div class="accordion-content">
+	<div class="accordion-content__text text-body-universal">
+		<p class="text-m-universal-medium uppercase">Размещение</p>
+		<p>12 штук. 6 шт. перед центральный входом, еще 6 шт. перед боковым входом.<br>
+		Размер полотна флага — 6х1,5 м. Формат — вертикальный.</p>
+	</div>
+
+	{{ component('slider', {
+		className: 'accordion-content__slider',
+		images: outsideFlagsMap,
+		navigation: true,
+		pagination: true,
+		paginationType: 'fraction'
+	}) }}
+
+	<div class="accordion-content__table-wrapper">
+		<table class="accordion-content__table">
+			<thead class="text-body-universal">
+				<tr>
+					<th class="alpha-40">Номер на схеме</th>
+					<th class="alpha-40">Местоположение</th>
+					<th class="alpha-40">Стоимость в месяц<br> (Сторонние)</th>
+					<th class="alpha-40">Стоимость в месяц<br> (Арендаторы)</th>
+					<th class="alpha-40">Фото</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>6 шт. перед центральный входом</td>
+					<td>30 000</td>
+					<td>30 000</td>
+					<td>
+						<picture>
+							<img src="/assets/images/marketing/outside-flags-table.jpg" width="50" height="35" alt="">
+						</picture>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>6 шт. перед боковым входом</td>
+					<td>30 000</td>
+					<td>30 000</td>
+					<td>
+						<picture>
+							<img src="/assets/images/marketing/outside-flags-table.jpg" width="50" height="35" alt="">
+						</picture>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="accordion-content__text text-body-universal">
+		<p class="text-m-universal-medium uppercase">Ткань</p>
+		<p>Флажная сетка, 100% полиэстр плотностью 118 г/м. Должен выдерживать сильные ветровые нагрузки и прослужить долгое время, без потери яркости изображения.</p>
+
+		<p class="text-m-universal-medium uppercase">Количество сторон:</p>
+		<p>Односторонние исполнение — изображение наносится с одной стороны, вторая сторона — зеркальное отображение. Благодаря специальным пропиткам обратная сторона флага получается практически такой же яркой.</p>
+
+		<p class="text-m-universal-medium uppercase">Дизайн:</p>
+		<p>Дизайн: произвольный, но необходимо согласовать с администрацией ТРК.</p>
+	</div>
+</div>

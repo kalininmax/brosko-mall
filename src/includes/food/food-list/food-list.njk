@@ -1,0 +1,124 @@
+{% set foodList = [
+	{
+		title: 'Рестораны',
+		list: [
+			{
+				name: 'Brosco Траттория',
+				category: 'Итальянская кухня',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			},
+			{
+				name: 'ICrab',
+				category: 'Гастробар',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'Хума',
+				category: 'Восточная кухня',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			}
+		]
+	},
+	{
+		title: 'Кафе',
+		list: [
+			{
+				name: 'Gangnam',
+				category: 'Корейская кухня',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'Hotto Ramen',
+				category: 'Японская кухня',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			},
+			{
+				name: 'ICHIBAN KARE',
+				category: 'Японская кухня',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'KFC',
+				category: 'Фастфуд',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			},
+			{
+				name: 'PHO',
+				category: 'Вьетнамская кухня',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'Plantacia',
+				category: 'Кофейня',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			}
+		]
+	},
+	{
+		title: 'Стритфуд',
+		list: [
+			{
+				name: 'Вкусно и точка',
+				category: 'Ресторан быстрого питания',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'Додо Пицца',
+				category: 'Пиццерия',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			},
+			{
+				name: 'ICHIBAN KARE',
+				category: 'Японская кухня',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'KFC',
+				category: 'Фастфуд',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			},
+			{
+				name: 'PHO',
+				category: 'Вьетнамская кухня',
+				img: '/assets/images/food/food-2.jpg',
+				qty: 3
+			},
+			{
+				name: 'Plantacia',
+				category: 'Кофейня',
+				img: '/assets/images/food/food-1.jpg',
+				qty: 3
+			}
+		]
+	}
+] %}
+
+<section class="food-list">
+	{% for table in foodList %}
+		<table class="food-list__table category-table _food" data-category-section>
+			<caption class="category-table__title">{{ table.title }}</caption>
+			<tbody class="category-table__body">
+				{% for item in table.list %}
+					<tr class="category-table__row" style="--hover-img:url({{ item.img }})" data-category-name="{{ item.category }}" data-popup-opener="food">
+						<th scope="row">{{ item.name }}</th>
+						<td>{{ item.category }}</td>
+						<td>{{ item.qty }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endfor %}
+</section>

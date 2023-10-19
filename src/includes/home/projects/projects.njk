@@ -1,0 +1,29 @@
+{% set projectsList = [
+	{
+		className: '_volna',
+		title: 'Volna',
+		titleTag: 'Аквакомплекс',
+		img: 'projects/project-volna.jpg',
+		bgColor: '#73B3DD',
+		url: '#'
+	},
+	{
+		className: '_ruma',
+		title: 'Ruma',
+		titleTag: 'Отель',
+		img: 'projects/project-ruma.jpg',
+		bgColor: '#B7BBC0',
+		url: '#'
+	}
+] %}
+
+<section class="page__section projects">
+	<h2 class="projects__title text-body container">Другие проекты BROSCO</h2>
+	<ul class="projects__list container">
+		{% for item in projectsList %}
+			<li class="projects__item">
+				{{ component('project-card', item) }}
+			</li>
+		{% endfor %}
+	</ul>
+</section>

@@ -1,0 +1,44 @@
+{% set storesList1 = [
+	'Incanto',
+	'BEFREE',
+	'Bershka',
+	'Natura Siberica',
+	'Adidas'
+] %}
+{% set storesList2 = [
+	'Calzedonia',
+	'Guess',
+	'Sunlight',
+	'Levis',
+	'BORK',
+	'Cozyhome'
+] %}
+
+<section class="page__section stores-ticker">
+	<h2 class="container stores-ticker__title">Более 150 магазинов и ресторанов:</h2>
+
+	<div class="stores-ticker__list-wrapper">
+		<ul class="stores-ticker__list text-xl" data-ticker>
+			{% for item in storesList1 %}
+				<li class="stores-ticker__item">
+					<a href="#" class="stores-ticker__link">{{ item }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<ul class="stores-ticker__list text-xl" data-ticker>
+			{% for item in storesList2 %}
+				<li class="stores-ticker__item">
+					<a href="#" class="stores-ticker__link">{{ item }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="stores-ticker__container container">
+		{{ component('button', {
+			className: '_more-link stores-ticker__more-link',
+			text: 'Все магазины',
+			href: '#'
+		}) }}
+	</div>
+</section>

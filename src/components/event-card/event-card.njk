@@ -1,0 +1,12 @@
+<article class="event-card{% if props.className %} {{ props.className }}{% endif %}"{% if props.bgColor %} style="--bg-color:{{ props.bgColor }}"{% endif %}>
+	<a class="event-card__info uppercase"{% if props.url %} href="{{ props.url }}"{% endif %}>
+		<p class="event-card__title text-m-medium">{{ props.title | safe }}</p>
+		<p class="event-card__date text-m-regular">{{ props.date | safe }}</p>
+	</a>
+	{{ component('picture', {
+		className: 'event-card__picture',
+		classNameImg: 'event-card__img full-size-img',
+		attr: 'style="--bg-color-img:' + props.bgColorImg + '" data-animation="coloredImg"',
+		src: props.imgSrc
+	}) }}
+</article>

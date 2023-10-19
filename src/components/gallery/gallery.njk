@@ -1,0 +1,17 @@
+<div class="gallery swiper{% if props.className %} {{ props.className }}{% endif %}" data-gallery>
+	<div class="gallery__slides swiper-wrapper">
+	{% for img in props.images %}
+		<div class="gallery__slide{% if img.className %} {{ img.className }}{% endif %} swiper-slide">
+			{{ component('picture', {
+				className: 'gallery__picture',
+				classNameImg: 'gallery__img full-size-img',
+				src: img.src
+			}) }}
+		</div>
+	{% endfor %}
+	</div>
+
+{% if props.pagination %}
+	<div class="swiper-pagination"></div>
+{% endif %}
+</div>

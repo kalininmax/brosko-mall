@@ -1,0 +1,209 @@
+{% set enList = [
+	{
+		name: 'A',
+		url: '#a'
+	},
+	{
+		name: 'B',
+		url: '#b'
+	},
+	{
+		name: 'C',
+		url: '#c'
+	},
+	{
+		name: 'D',
+		url: '#d'
+	},
+	{
+		name: 'E',
+		url: '#e'
+	},
+	{
+		name: 'F',
+		url: '#f'
+	},
+	{
+		name: 'G',
+		url: '#g'
+	},
+	{
+		name: 'H',
+		url: '#h'
+	},
+	{
+		name: 'I',
+		url: '#i'
+	},
+	{
+		name: 'K',
+		url: '#k'
+	},
+	{
+		name: 'L',
+		url: '#l'
+	},
+	{
+		name: 'M',
+		url: '#m'
+	},
+	{
+		name: 'N',
+		url: '#n'
+	},
+	{
+		name: 'O',
+		url: '#o'
+	},
+	{
+		name: 'P',
+		url: '#p'
+	},
+	{
+		name: 'Q',
+		url: '#q'
+	},
+	{
+		name: 'R',
+		url: '#r'
+	},
+	{
+		name: 'S',
+		url: '#s'
+	},
+	{
+		name: 'T',
+		url: '#t'
+	},
+	{
+		name: 'U',
+		url: '#u'
+	},
+	{
+		name: 'V',
+		url: '#v'
+	},
+	{
+		name: 'W',
+		url: '#w'
+	},
+	{
+		name: 'X',
+		url: '#x'
+	},
+	{
+		name: 'Z',
+		url: '#z'
+	}
+] %}
+{% set ruList = [
+	{
+		name: 'А',
+		url: '#ru-a'
+	},
+	{
+		name: 'Б',
+		url: '#ru-b'
+	},
+	{
+		name: 'В',
+		url: '#ru-v'
+	},
+	{
+		name: 'Г',
+		url: '#ru-g'
+	},
+	{
+		name: 'Д',
+		url: '#ru-d'
+	},
+	{
+		name: 'Е',
+		url: '#ru-ye'
+	},
+	{
+		name: 'З',
+		url: '#ru-z'
+	},
+	{
+		name: 'И',
+		url: '#ru-i'
+	},
+	{
+		name: 'К',
+		url: '#ru-k'
+	},
+	{
+		name: 'Л',
+		url: '#ru-l'
+	},
+	{
+		name: 'М',
+		url: '#ru-m'
+	},
+	{
+		name: 'Н',
+		url: '#ru-n'
+	},
+	{
+		name: 'О',
+		url: '#ru-o'
+	},
+	{
+		name: 'П',
+		url: '#ru-p'
+	},
+	{
+		name: 'Р',
+		url: '#ru-r'
+	},
+	{
+		name: 'С',
+		url: '#ru-s'
+	},
+	{
+		name: 'Т',
+		url: '#ru-t'
+	},
+	{
+		name: 'У',
+		url: '#ru-u'
+	},
+	{
+		name: 'Ф',
+		url: '#ru-f'
+	},
+	{
+		name: 'Х',
+		url: '#ru-h'
+	},
+	{
+		name: 'Ш',
+		url: '#ru-sh'
+	},
+	{
+		name: 'Э',
+		url: '#ru-e'
+	},
+	{
+		name: 'Я',
+		url: '#ru-ya'
+	}
+] %}
+
+<section class="abc-list{% if props.className %} {{ props.className }}{% endif %}">
+	<ul class="abc-list__list">
+		{% for item in enList %}
+			<li class="abc-list__item">
+				<a href="{{ item.url }}" class="abc-list__link">{{ item.name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	<ul class="abc-list__list">
+		{% for item in ruList %}
+			<li class="abc-list__item">
+				<a href="{{ item.url }}" class="abc-list__link">{{ item.name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</section>

@@ -1,0 +1,88 @@
+<form class="vacancy__form form" data-form>
+	<input type="hidden" name="VacancyName">
+
+	<div class="form__inputs">
+		<fieldset class="form__fieldset">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Личные данные</legend>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'Имя',
+						label: 'Имя',
+						id: 'form-vacancy-name',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Фамилия',
+						label: 'Фамилия',
+						id: 'form-vacancy-surname',
+						required: true
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'email',
+						name: 'E-mail',
+						label: 'E-mail',
+						id: 'form-vacancy-email',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Телефон',
+						label: 'Телефон',
+						id: 'form-vacancy-tel',
+						required: true,
+						inputAttr: 'inputmode="tel"'
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+		<fieldset class="form__fieldset _file">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Резюме</legend>
+				<div class="form__fieldset-desc text-body-universal alpha-40">
+					<p>Допустимые форматы: jpg, jpeg, png, pdf</p>
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'file',
+						name: 'Файл с резюме',
+						labelMobile: 'Загрузить документ',
+						label: 'Выберите на компьютере или перетащите файл сюда<span class="alpha-40">( Не более 10 Мб)</span>',
+						fileDesc: 'Допустимые форматы: jpg, jpeg, png, pdf',
+						fileErrorDesc: 'Ошибка, попробуйте еще раз',
+						id: 'form-vacancy-file',
+						required: true
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'url',
+						name: 'Ссылка на резюме',
+						label: 'Или вставьте ссылку на резюме hh.ru или Superjob.ru',
+						id: 'form-vacancy-file-link'
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+
+		<div class="form__checkboxes">
+			{{ component('input-checkbox', {
+				name: 'agreement',
+				text: 'Я согласен на обработку моих <a href="#" target="_blank" rel="nofollow">персональных данных</a> и соглашаюсь с условиями <a href="#" target="_blank" rel="nofollow">Пользовательского соглашения</a>',
+				inputAttr: 'required'
+			}) }}
+		</div>
+	</div>
+
+	<div class="form__bottom">
+		{{ component('button', {
+			className: 'form__submit-btn _full-width _more-link _white',
+			type: 'submit',
+			text: 'Отправить'
+		}) }}
+	</div>
+</form>

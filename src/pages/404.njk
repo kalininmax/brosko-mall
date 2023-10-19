@@ -1,0 +1,13 @@
+{% extends "../templates/404.njk" %}
+
+{% block title %}Страница не найдена | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_404' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "not-found/not-found.njk" %}
+</main>
+
+{% endblock %}

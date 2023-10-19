@@ -1,13 +1,11 @@
 {% extends "./base.njk" %}
 
-{% block content %}
+{% block pageWrapper %}
 
 {{ component('header') }}
 
-<main class="page__main">
-	{% block mainContent %}{% endblock %}
-</main>
+{% block content %}{% endblock %}
 
-{{ component('footer') }}
+{{ component('footer', { socialsList: site.socialsList, copyright: site.copyright }) }}
 
-{% endblock %}
+{% endblock pageWrapper %}

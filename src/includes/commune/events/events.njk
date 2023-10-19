@@ -1,0 +1,41 @@
+{% set eventsList = [
+	{
+		url: '/event',
+		className: '_top',
+		title: 'Битва взглядов',
+		date: '5-6 февраля',
+		imgSrc: 'events/event-7.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColor: '#AFA7C9'
+	},
+	{
+		url: '/event',
+		className: '_top',
+		title: 'Halloween-Show в Планетарии',
+		date: '5-6 февраля',
+		imgSrc: 'events/event-9.jpg',
+		imgWidth: '375',
+		imgHeight: '375',
+		bgColor: '#DF6F48'
+	}
+] %}
+
+<section class="page__section events">
+	<div class="events__container container">
+		<h2 class="events__title _center _mb section-title _xs"><span>События</span></h2>
+		<ul class="events__list _top-only">
+		{% for eventData in eventsList %}
+			<li class="events__item{% if eventData.className %} {{ eventData.className }}{% endif %}">
+				{{ component('event-card', eventData) }}
+			</li>
+		{% endfor %}
+		</ul>
+
+		{{ component('button', {
+			className: '_more-link events__more-link',
+			text: 'Aфиша событий',
+			href: '/events'
+		}) }}
+	</div>
+</section>

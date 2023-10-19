@@ -1,0 +1,33 @@
+{% set rentNumbers = [
+	{
+		text: 'Рекламных мест',
+		value: '25'
+	},
+	{
+		text: 'Посетителей в день',
+		value: '15 000'
+	},
+	{
+		text: 'Уровней торговых площадей',
+		value: '4'
+	},
+	{
+		text: 'Количество экранов на фасаде торгового комплекса',
+		value: '8'
+	}
+] %}
+
+<section class="page__section numbers">
+	<div class="numbers__container container">
+		<h2 class="numbers__title text-m-universal-medium uppercase">Особенности</h2>
+
+		<dl class="numbers__list text-body-universal">
+		{% for number in rentNumbers %}
+			<div class="numbers__item">
+				<dt class="alpha-50">{{ number.text }}</dt>
+				<dd class="text-l">{{ number.value }}</dd>
+			</div>
+		{% endfor %}
+		</dl>
+	</div>
+</section>

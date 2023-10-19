@@ -1,0 +1,25 @@
+.page {
+	$this: &;
+	&._career {
+		#{$this}__main {
+			padding-top: rem(135);
+		}
+		#{$this}__title-wrapper {
+			position: relative;
+			z-index: 2;
+			margin-bottom: calc(-88 / 1420 * 100vw);
+		}
+
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(130);
+			}
+		}
+
+		@media (max-width: $mobile-only) {
+			#{$this}__title-wrapper {
+				margin-bottom: rem(-23);
+			}
+		}
+	}
+}

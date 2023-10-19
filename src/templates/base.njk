@@ -1,32 +1,26 @@
 {% from "../components/system/component.njk" import component %}
 
 <!DOCTYPE html>
-<html class="page _loading" lang="{{ site.lang }}">
+<html class="page _loading {{ htmlClassMod }}" lang="ru">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>
-	{% block title %}
-		{% if title %}
-			{{ title }} | {{ site.title }}
-		{% else %}
-			{{ site.title }}
-		{% endif %}
-	{% endblock %}
-	</title>
+	<title>{% block title %}Торговый центр Brosko Mall | Официальный сайт{% endblock %}</title>
 
 	<meta name="description" content="{{ site.desc }}">
 
-	<link rel="preload" href="/assets/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="/assets/fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/CoFoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/CoFoSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
 
 	<link rel="stylesheet" href="/assets/styles/styles.css?{% hash %}">
 
 	{% include "./_favicons.njk" %}
 	{% include "./_head-scripts.njk" %}
+
+	{% block headend %}{% endblock %}
 
 	<script defer src="/assets/scripts/bundle.js?{% hash %}"></script>
 </head>
@@ -34,7 +28,11 @@
 <body class="page__body">
 	{% svgSprite %}
 
-	{% block content %}{% endblock %}
+	<div class="page__wrapper wrapper{% if wrapperClassMod %} {{ wrapperClassMod }}{% endif %}">
+		{% block pageWrapper %}{% endblock %}
+	</div>
+
+	{{ component('popups', { list: site.popupsList }) }}
 </body>
 
 </html>

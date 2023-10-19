@@ -1,0 +1,31 @@
+{% set rentPriceList = [
+	{
+		text: 'Аренда зоны амфитеатра под ваши мероприятия (200 посадочных мест)',
+		value: '10 000 руб./час'
+	},
+	{
+		text: 'Проведение мероприятий для арендаторов ТРК',
+		value: 'бесплатно'
+	}
+] %}
+
+<section class="page__section rent-price">
+	<div class="rent-price__container container text-center">
+		<h2 class="rent-price__title text-l"><span>Стоимость аренды</span></h2>
+
+		<div class="rent-price__content text-body-universal">
+			<dl class="rent-price__list">
+			{% for item in rentPriceList %}
+				<div class="rent-price__item">
+					<dt>{{ item.text }}</dt>
+					<dd class="text-m-universal-medium uppercase">{{ item.value }}</dd>
+				</div>
+			{% endfor %}
+			</dl>
+			<div class="rent-price__text">
+				<p>По всем вопросам аренды, бронирования, наличия свободных дат звоните по телефону:</p>
+				<p class="text-m-universal-medium"><a href="tel:+7(984)172-28-33">+7 (984) 172-28-33</a></p>
+			</div>
+		</div>
+	</div>
+</section>

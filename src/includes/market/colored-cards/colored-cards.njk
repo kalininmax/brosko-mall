@@ -1,0 +1,39 @@
+{% set coloredCardsList = [
+	{
+		href: '/cinema',
+		title: 'Кинотеатр IMAX',
+		img: 'colored-cards/cinema-cover.jpg',
+		bgColor: '#FF922E',
+		className: ' _img-right-bottom'
+	},
+	{
+		href: '/kids',
+		title: 'Brosko Дети',
+		img: 'colored-cards/kids-cover.jpg',
+		bgColor: '#F9EA48',
+		className: ' _img-right-gap'
+	},
+	{
+		href: '/commune',
+		title: 'Коммуна',
+		img: 'colored-cards/commune-cover.jpg',
+		bgColor: '#BD4B49',
+		className: ' _img-right-bottom'
+	}
+] %}
+
+<div class="page__section page__colored-cards colored-cards container">
+	<ul class="colored-cards__list" data-animation="fadeInCards">
+		{% for item in coloredCardsList %}
+			<li class="colored-cards__item">
+				{{ component('colored-card', {
+					className: 'colored-cards__card' + item.className,
+					url: item.href,
+					title: item.title,
+					img: item.img,
+					bgColor: item.bgColor
+				}) }}
+			</li>
+		{% endfor %}
+	</ul>
+</div>

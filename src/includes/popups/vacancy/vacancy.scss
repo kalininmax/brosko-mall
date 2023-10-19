@@ -1,0 +1,80 @@
+.vacancy {
+	--padding: #{rem(10)};
+
+	position: relative;
+	display: flex;
+	height: 100%;
+	&__container {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		padding: var(--padding);
+		padding-bottom: 0;
+		overflow: auto;
+	}
+	&__wrapper {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		._info-opened &._form {
+			display: none;
+		}
+		._form-opened &._info {
+			display: none;
+		}
+	}
+	&__bottom {
+		position: sticky;
+		bottom: 0;
+		margin-top: rem(80);
+		padding-bottom: var(--padding);
+		background-color: var(--white);
+	}
+	&__content {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		grid-auto-rows: min-content;
+		flex-grow: 1;
+		gap: rem(80) rem(68);
+		h3 {
+			margin-top: -0.2em;
+			text-transform: uppercase;
+			font: inherit;
+		}
+		ul {
+			padding-inline-start: 1.1em;
+			li {
+				list-style-type: disc;
+			}
+		}
+		._win._desktop & {
+			column-gap: rem(40);
+		}
+
+		@media (max-width: $mobile-lg) {
+			gap: 0;
+			h3 {
+				margin-top: 0;
+				margin-bottom: rem(18);
+			}
+			ul + h3 {
+				margin-top: rem(37);
+			}
+			ul {
+				grid-column: 1/-1;
+				padding-inline-start: 2.6em;
+			}
+			._win._desktop & {
+				gap: 0;
+			}
+		}
+	}
+	&__form {
+		flex-grow: 1;
+		margin-top: rem(80);
+
+		@media (max-width: $mobile-lg) {
+			margin-top: rem(60);
+		}
+	}
+}

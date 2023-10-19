@@ -1,0 +1,28 @@
+{% set tickerImages = [
+	'/assets/images/rent/rent-ticker-1.jpg',
+	'/assets/images/rent/rent-ticker-2.jpg'
+] %}
+
+<section class="page__section ticker-rent">
+	<h2 class="ticker-rent__title text-xl" data-ticker>
+	{% for img in tickerImages %}
+		<span>Заявка на аренду
+			<picture class="ticker-rent__picture">
+				<img class="full-size-img" src="{{ img }}" width="179" height="127" alt="">
+			</picture>
+		</span>
+	{% endfor %}
+	</h2>
+
+	<div class="ticker-rent__container container">
+		<div class="ticker-rent__content text-body-universal text-center">
+			<p>Если вы заинтересованы в сотрудничестве с нами, предлагаем заполнить анкету арендатора</p>
+		</div>
+
+		{{ component('button', {
+			className: '_more-link _plus ticker-rent__rent-btn',
+			text: 'Оставить заявку',
+			attr: 'data-popup-opener="rent-form"'
+		}) }}
+	</div>
+</section>

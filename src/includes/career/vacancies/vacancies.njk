@@ -1,0 +1,25 @@
+{% set vacanciesList1 = [
+	{
+		abbr: 'С',
+		name: 'Специалист отдела кадров',
+		tags: ['Полная неделя', 'от 50 000 ₽']
+	},
+	{
+		abbr: 'МК',
+		name: 'Менеджер по клинингу',
+		tags: ['Сменный график', 'от 50 000 ₽']
+	}
+] %}
+
+<section class="page__section vacancies">
+	<div class="vacancies__container container">
+		<div class="vacancies__title-wrapper">
+			<h2 class="vacancies__title text-l">Вакансии Brosco mall <span class="vacancies__qty">2</span></h2>
+		</div>
+
+		{{ component('vacancies-list', {
+			className: 'vacancies__list',
+			list: vacanciesList1
+		}) }}
+	</div>
+</section>

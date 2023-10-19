@@ -1,0 +1,13 @@
+{% extends "../templates/map-page.njk" %}
+
+{% block title %}Карта | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_map' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "map/map.njk" %}
+</main>
+
+{% endblock %}

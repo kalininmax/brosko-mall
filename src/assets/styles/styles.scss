@@ -1,15 +1,84 @@
 // ======= GLOBAL =======
 @import 'constants';
 @import 'lib/base';
+@import 'lib/custom-select';
+@import 'lib/swiper';
 @import 'fonts';
 @import 'reset';
 @import 'global';
 @import 'layout';
+@import 'typography';
 
 // ======= COMPONENTS =======
 @import '../../components/button/button';
+@import '../../components/select/select';
+@import '../../components/menu/menu';
 @import '../../components/header/header';
 @import '../../components/footer/footer';
+@import '../../components/event-card/event-card';
+@import '../../components/colored-card/colored-card';
+@import '../../components/project-card/project-card';
+@import '../../components/abc-list/abc-list';
+@import '../../components/category-table/category-table';
+@import '../../components/popups/popups';
+@import '../../components/slider/slider';
+@import '../../components/title-img/title-img';
+@import '../../components/table/table';
+@import '../../components/gallery/gallery';
+@import '../../components/form/form';
+@import '../../components/input/input';
+@import '../../components/input-checkbox/input-checkbox';
+@import '../../components/notification/notification';
+@import '../../components/video/video';
+@import '../../components/vacancies-list/vacancies-list';
+@import '../../components/accordion/accordion';
+@import '../../components/toc/toc';
 
 // ======= INCLUDES =======
-@import '../../includes/intro/intro';
+@import '../../includes/home/intro/intro';
+@import '../../includes/home/events/events';
+@import '../../includes/home/stores-ticker/stores-ticker';
+@import '../../includes/home/commune/commune';
+@import '../../includes/home/colored-cards/colored-cards';
+@import '../../includes/home/about/about';
+@import '../../includes/home/projects/projects';
+@import '../../includes/stores/stores-list/stores-list';
+@import '../../includes/food/food-list/food-list';
+@import '../../includes/cinema/cinema-intro/cinema-intro';
+@import '../../includes/cinema/features/features';
+@import '../../includes/kids/price/price';
+@import '../../includes/commune/rent-price/rent-price';
+@import '../../includes/event/intro-event/intro-event';
+@import '../../includes/event/info-event/info-event';
+@import '../../includes/rent/intro-rent/intro-rent';
+@import '../../includes/rent/numbers/numbers';
+@import '../../includes/rent/ticker-rent/ticker-rent';
+@import '../../includes/career/intro-career/intro-career';
+@import '../../includes/career/vacancies/vacancies';
+@import '../../includes/career/cta/cta';
+@import '../../includes/marketing/accordion-content/accordion-content';
+@import '../../includes/marketing/marketing-contacts/marketing-contacts';
+@import '../../includes/rules/text-content/text-content';
+@import '../../includes/contacts/contacts';
+@import '../../includes/not-found/not-found';
+@import '../../includes/map/map';
+@import '../../includes/popups/store/store';
+@import '../../includes/popups/food/food';
+@import '../../includes/popups/rent/rent';
+@import '../../includes/popups/rent-form/rent-form';
+@import '../../includes/popups/vacancy/vacancy';
+@import '../../includes/popups/vacancy-form/vacancy-form';
+@import '../../includes/popups/image-popup/image-popup';
+
+// ======= PAGES =======
+@import 'pages/default';
+@import 'pages/home';
+@import 'pages/stores';
+@import 'pages/food';
+@import 'pages/events';
+@import 'pages/rent';
+@import 'pages/career';
+@import 'pages/marketing';
+@import 'pages/rules';
+@import 'pages/contacts';
+@import 'pages/map';

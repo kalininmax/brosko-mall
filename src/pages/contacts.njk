@@ -1,0 +1,25 @@
+{% extends "../templates/contacts-page.njk" %}
+
+{% block title %}Контакты | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_contacts' %}
+
+{% block headend %}
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=244b98ef-b3e4-4b04-b383-00c6bf41df5a&lang=ru_RU"></script>
+{% endblock %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page__title-wrapper page-title-wrapper">
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Контакты</h1>
+	</div>
+
+	{% include "contacts/contacts.njk" %}
+
+	{{ component('notification', {
+		text: '<p>Заявка отправлена – мы свяжемся с вами ближайшее время</p>'
+	}) }}
+</main>
+
+{% endblock %}

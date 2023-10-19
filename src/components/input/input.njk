@@ -1,0 +1,46 @@
+<div class="input _{{ props.type }}{% if props.placeholder %} _placeholder{% endif %}{% if props.required %} _required{% endif %}{% if props.className %} {{ props.className }}{% endif %}" data-input>
+	<div class="input__wrapper">
+		<div class="input__input-wrapper">
+		{% if props.type === 'textarea' %}
+			<textarea
+				class="input__input"
+				name="{{ props.name | safe }}"
+				id="{{ props.id }}"
+				{% if props.value %}value="{{ props.value }}"{% endif %}
+				{% if props.inputAttr %} {{ props.inputAttr | safe }}{% endif %}
+				{% if props.placeholder %} placeholder="{{ props.placeholder }}"{% endif %}
+				{% if props.required %} required{% endif %}
+			></textarea>
+		{% else %}
+			<input
+				class="input__input"
+				type="{{ props.type }}"
+				name="{{ props.name | safe }}"
+				id="{{ props.id }}"
+				{% if props.value %}value="{{ props.value }}"{% endif %}
+				{% if props.inputAttr %} {{ props.inputAttr | safe }}{% endif %}
+				{% if props.required %} required{% endif %}
+			>
+		{% endif %}
+
+			<label class="input__label" for="{{ props.id }}">
+				{{ props.label }}
+				<span class="input__file-desc alpha-40">{{ props.fileDesc | safe }}</span>
+				<span class="input__file-desc _error">{{ props.fileErrorDesc | safe }}</span>
+			</label>
+		{% if props.labelMobile %}
+			<label class="input__label _mobile" for="{{ props.id }}">
+					{{ props.labelMobile }}
+			</label>
+		{% endif %}
+		{% if props.type === 'file' %}
+			<span class="input__file-name">
+				<span class="input__file-name-text"></span>
+			</span>
+		{% endif %}
+		</div>
+		{% if props.decsriptionText %}
+			<p class="input__desc">{{ props.decsriptionText }}</p>
+		{% endif %}
+	</div>
+</div>

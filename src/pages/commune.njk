@@ -1,0 +1,25 @@
+{% extends "../templates/commune-page.njk" %}
+
+{% block title %}Коммуна | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_commune' %}
+{% set wrapperClassMod = 'c-yellow-dark bg-red-dark' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "commune/cinema-intro/cinema-intro.njk" %}
+	{% include "commune/features/features.njk" %}
+	{% include "commune/events/events.njk" %}
+	{% include "commune/gallery/gallery.njk" %}
+	{% include "commune/rent-price/rent-price.njk" %}
+	{% include "commune/colored-cards/colored-cards.njk" %}
+</main>
+
+{{ component('button', {
+	href: '/map',
+	text: 'На карте',
+	className: 'page__button button _fixed'
+}) }}
+
+{% endblock %}

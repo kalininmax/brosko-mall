@@ -1,0 +1,15 @@
+{% extends "../templates/page.njk" %}
+
+{% block title %}Новый магазин одежды и аксессуаров LIMÉ | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_event' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "event/intro-event/intro-event.njk" %}
+	{% include "event/info-event/info-event.njk" %}
+	{% include "event/events/events-others.njk" %}
+</main>
+
+{% endblock %}

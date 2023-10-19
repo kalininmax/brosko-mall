@@ -1,0 +1,218 @@
+.intro {
+	$this: &;
+	--menu-height: #{rem(130)};
+	--list-height: #{rem(650)};
+
+	position: relative;
+	display: grid;
+	height: 100vh;
+
+	@media (max-width: $desktop-md) {
+		--menu-height: #{rem(100)};
+		--list-height: #{rem(500)};
+	}
+
+	@media (max-width: $tablet) {
+		height: auto;
+	}
+
+	@media (max-width: $mobile-lg) {
+		--menu-height: #{rem(45)};
+		--list-height: #{rem(425)};
+	}
+
+	@media (max-width: $mobile-md) {
+		--list-height: #{rem(300)};
+	}
+	&__container {
+		position: relative;
+		grid-area: 1 / 1 / -1 / -1;
+		width: 100%;
+		height: 100%;
+	}
+	&__list-wrapper {
+		position: fixed;
+		inset: 0;
+		z-index: 3;
+		display: grid;
+		grid-template-rows: 1fr calc(var(--menu-height) + var(--list-height)) 1fr;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		place-items: center;
+		pointer-events: none;
+		._no-scroll & {
+			padding-inline-end: var(--scrollbar-width);
+		}
+
+		@media (max-width: $mobile-lg) {
+			grid-template-rows: calc(var(--menu-height) + rem(10)) 1fr;
+		}
+	}
+	&__list {
+		z-index: 2;
+		grid-row: 2/3;
+		grid-column: 1/-1;
+		align-self: end;
+		width: 100%;
+		max-width: rem(500);
+		visibility: hidden;
+		transition: max-width $fast-transition-duration $default-transition-function;
+		will-change: max-width;
+		pointer-events: all;
+
+		@media (max-width: $desktop-md) {
+			max-width: rem(415);
+		}
+
+		@media (max-width: $mobile-lg) {
+			position: fixed;
+			align-self: start;
+			max-width: rem(355);
+		}
+	}
+	&__item {
+		&:nth-child(1) {
+			a {
+				--counter-color: var(--color, var(--orange));
+
+				background-color: var(--color, var(--orange));
+			}
+		}
+		&:nth-child(2) {
+			a {
+				--counter-color: var(--color, var(--blue));
+
+				background-color: var(--color, var(--blue));
+			}
+		}
+		&:nth-child(3) {
+			a {
+				--counter-color: var(--color, var(--light-purple));
+
+				background-color: var(--color, var(--light-purple));
+			}
+		}
+		&:nth-child(4) {
+			a {
+				--counter-color: var(--color, var(--red-dark));
+
+				background-color: var(--color, var(--red-dark));
+			}
+		}
+		&:nth-child(5) {
+			a {
+				--counter-color: var(--color, var(--green));
+
+				background-color: var(--color, var(--green));
+			}
+		}
+	}
+	&__link {
+		display: flex;
+		column-gap: rem(5);
+		padding: rem(27) rem(25) rem(13) rem(25);
+		text-decoration: none;
+		transition: letter-spacing $default-transition-duration $default-transition-function;
+		will-change: letter-spacing;
+		&::after {
+			content: '→';
+			opacity: 0;
+			margin-inline: auto 0.2em;
+			font-size: rem(72);
+			will-change: opacity, margin;
+			transition: opacity $default-transition-duration $default-transition-function,
+				margin $default-transition-duration $default-transition-function;
+		}
+		&:hover {
+			letter-spacing: 0.1em;
+			&::after {
+				opacity: 1;
+				margin-inline-end: 0;
+			}
+		}
+
+		@media (max-width: $desktop-md) {
+			padding: rem(22) rem(25) rem(13) rem(25);
+		}
+
+		@media (max-width: $mobile-md) {
+			padding: rem(7) rem(13) rem(3) rem(13);
+			&::after {
+				margin-inline-end: 0;
+				opacity: 1;
+				font-size: rem(55);
+				letter-spacing: 0;
+			}
+		}
+	}
+	&__link-counter {
+		position: relative;
+		top: -0.7em;
+		left: -0.1em;
+		align-self: flex-start;
+		padding-inline: rem(7);
+		border: 1px solid var(--black);
+		border-radius: 100vmax;
+		background-color: var(--black);
+		color: var(--counter-color);
+		text-align: center;
+		font-family: var(--ff-cofo);
+		font-size: rem(15);
+		line-height: rem(18);
+		font-weight: 500;
+		letter-spacing: -0.02em;
+
+		@media (max-width: $desktop-md) {
+			top: 0;
+			left: -0.4em;
+			padding-inline: rem(5);
+			font-size: rem(10);
+			line-height: rem(13);
+		}
+	}
+	&__slider-container {
+		display: grid;
+		grid-template-rows: 1fr min-content;
+		grid-template-columns: 50% 50%;
+		gap: rem(10);
+		width: 100%;
+
+		@media (max-width: $tablet) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			margin-top: 67.5vh;
+			padding-block-end: rem(10);
+		}
+	}
+	&__slider-wrapper {
+		grid-row: 1/3;
+		grid-column: 2/3;
+		width: 100%;
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@media (max-width: $tablet) {
+			padding-bottom: 100%;
+			height: 0;
+			> * {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	&__slide-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

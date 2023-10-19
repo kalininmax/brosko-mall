@@ -1,0 +1,23 @@
+{% extends "../templates/page.njk" %}
+
+
+{% block title %}Маркет | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_market' %}
+{% set wrapperClassMod = 'bg-green' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "market/cinema-intro/cinema-intro.njk" %}
+	{% include "market/features/features.njk" %}
+	{% include "market/colored-cards/colored-cards.njk" %}
+</main>
+
+{{ component('button', {
+	href: '/map',
+	text: 'На карте',
+	className: 'page__button button _fixed'
+}) }}
+
+{% endblock %}

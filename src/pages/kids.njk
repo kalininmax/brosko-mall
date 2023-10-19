@@ -1,0 +1,24 @@
+{% extends "../templates/kids-page.njk" %}
+
+{% block title %}Дети | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_kids' %}
+{% set wrapperClassMod = 'bg-yellow' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "kids/cinema-intro/cinema-intro.njk" %}
+	{% include "kids/features/features.njk" %}
+	{% include "kids/events/events.njk" %}
+	{% include "kids/price/price.njk" %}
+	{% include "kids/colored-cards/colored-cards.njk" %}
+</main>
+
+{{ component('button', {
+	href: '/map',
+	text: 'На карте',
+	className: 'page__button button _fixed'
+}) }}
+
+{% endblock %}

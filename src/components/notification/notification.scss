@@ -1,0 +1,16 @@
+.notification {
+	position: fixed;
+	bottom: rem(15);
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	visibility: hidden;
+	&__container {
+		padding: rem(20);
+		box-sizing: border-box;
+		max-width: fit-content;
+		background-color: var(--grey);
+		text-align: center;
+	}
+}

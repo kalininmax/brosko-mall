@@ -1,0 +1,42 @@
+<section class="store">
+	<div class="store__cover">
+		<p class="store__cover-title text-l">Adidas</p>
+		<img class="store__cover-logo" src="/assets/images/stores/adidas-logo.png" width="65" height="65" alt="">
+		<picture class="store__cover-picture">
+			<img class="store__cover-img" src="/assets/images/stores/adidas.jpg" width="564" height="372" alt="">
+		</picture>
+	</div>
+
+	<div class="store__container">
+		<p class="store__categories">Мужская одежда, Женская одежда, Обувь и аксессуары</p>
+		<p class="store__floor">2 этаж</p>
+
+		<div class="store__info">
+			<p class="store__info-item">
+				Телефон
+				<a href="tel:8(4212)78-95-36">8 (4212) 78-95-36</a>
+			</p>
+			<p class="store__info-item">
+				Часы работы
+				<b>10:00 – 23:00</b>
+			</p>
+			<p class="store__info-item">
+				<a href="https://www.adidas.ru/" target="_blank" rel="nofollow">Adidas.Ru</a>
+			</p>
+		</div>
+
+		<div class="store__desc">
+			<p>Adidas – креативный спортивный бренд, призывающий мыслить нестандартно в игре и в повседневной жизни. Главная цель Adidas – разрабатывать лучшие продукты и предоставлять уникальный опыт, вдохновляя людей пробовать новое и создавать будущее спорта вместе.</p>
+			<p>В магазине Adidas представлены одежда, обувь и аксессуары для самых популярных видов спорта. Профессиональные консультанты помогут сделать правильный выбор в зависимости от индивидуальных потребностей покупателя. Для постоянных клиентов действует программа лояльности Adidas Universe с накопительной системой скидок.</p>
+		</div>
+
+		<div class="store__bottom">
+			{{ component('button', {
+				className: 'store__map-link _popup',
+				href: '/map#store',
+				text: 'Показать на карте',
+				attr: 'data-popup-closer'
+			}) }}
+		</div>
+	</div>
+</section>

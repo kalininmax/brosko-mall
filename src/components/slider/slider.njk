@@ -1,0 +1,31 @@
+<div class="slider swiper{% if props.className %} {{ props.className }}{% endif %}{% if props.paginationType == 'fraction' %} _fraction{% endif %}" data-slider{% if props.attr %} {{ props.attr }}{% endif %}{% if props.autoplay %} data-slider-autoplay{% endif %}{% if props.pagination %} data-slider-pagination="{{ props.paginationType }}"{% endif %}{% if props.navigation %} data-slider-navigation{% endif %}>
+	<div class="swiper-wrapper">
+	{% for img in props.images %}
+		<div class="swiper-slide">
+			<picture class="slider__picture">
+				<img class="slider__img full-size-img" src="{{ img.src }}" width="{{ img.width }}" height="{{ img.heigh }}" alt="" loading="lazy">
+			</picture>
+		</div>
+	{% endfor %}
+	</div>
+
+	{% if props.navigation and props.paginationType == 'fraction' %}
+	<div class="slider__pagination-wrapper">
+		{{ component('button', {
+			className: '_pagination-nav swiper-button-prev',
+			attr: 'aria-label="Prev"'
+		}) }}
+	{% endif %}
+
+	{% if props.pagination %}
+		<div class="swiper-pagination"></div>
+	{% endif %}
+
+	{% if props.navigation and props.paginationType == 'fraction' %}
+		{{ component('button', {
+			className: '_pagination-nav swiper-button-next',
+			attr: 'aria-label="Next"'
+		}) }}
+	</div>
+	{% endif %}
+	</div>

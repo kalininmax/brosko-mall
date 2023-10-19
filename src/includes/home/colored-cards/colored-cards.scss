@@ -1,0 +1,16 @@
+.colored-cards {
+	position: relative;
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: rem(5);
+
+		@media (max-width: $mobile-only) {
+			grid-template-columns: auto;
+		}
+	}
+	&__item {
+		display: flex;
+		color: var(--black);
+	}
+}

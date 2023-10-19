@@ -1,0 +1,117 @@
+{% set storesList = [
+	{
+		id: 'a',
+		title: 'A',
+		list: [
+			{
+				name: 'Adidas',
+				category: 'Одежда',
+				qty: 3
+			},
+			{
+				name: 'AKIHABARU',
+				category: 'Развлечения',
+				qty: 2
+			},
+			{
+				name: 'Anta Sport',
+				category: 'Одежда',
+				qty: 3
+			},
+			{
+				name: 'ANTIGA',
+				category: 'Детские товары и игры',
+				qty: 1
+			},
+			{
+				name: 'Aroma Corner',
+				category: 'Бытовые услуги',
+				qty: 0
+			},
+			{
+				name: 'Armani Exchange',
+				category: 'Одежда',
+				qty: 2
+			}
+		]
+	},
+	{
+		id: 'b',
+		title: 'B',
+		list: [
+			{
+				name: 'Basconi',
+				category: 'Музыкальные инструменты',
+				qty: 3
+			},
+			{
+				name: 'Be Hip',
+				category: 'Электроника и техника',
+				qty: 1
+			},
+			{
+				name: 'Beba Kids',
+				category: 'Обувь',
+				qty: 0
+			},
+			{
+				name: 'Beefree',
+				category: 'Одежда',
+				qty: 2
+			}
+		]
+	},
+	{
+		id: 'c',
+		title: 'C',
+		list: [
+			{
+				name: 'Calzedonia',
+				category: 'Одежда',
+				qty: 3
+			},
+			{
+				name: 'Chester',
+				category: 'Одежда',
+				qty: 1
+			},
+			{
+				name: 'Сlimber',
+				category: 'Одежда',
+				qty: 0
+			},
+			{
+				name: 'Colin&rsquo;s',
+				category: 'Одежда',
+				qty: 2
+			},
+			{
+				name: 'Corso como',
+				category: 'Одежда',
+				qty: 2
+			},
+			{
+				name: 'Cozy home',
+				category: 'Аксессуары',
+				qty: 1
+			}
+		]
+	}
+] %}
+
+<section class="stores-list">
+	{% for table in storesList %}
+		<table class="stores-list__table category-table _stores" id="{{ table.id }}" data-category-section>
+			<caption class="category-table__title">{{ table.title }}</caption>
+			<tbody class="category-table__body">
+				{% for item in table.list %}
+					<tr class="category-table__row" data-category-name="{{ item.category }}" data-popup-opener="store">
+						<th scope="row">{{ item.name }}</th>
+						<td>{{ item.category }}</td>
+						<td>{{ item.qty }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endfor %}
+</section>

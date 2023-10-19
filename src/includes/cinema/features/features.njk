@@ -1,0 +1,61 @@
+{% set featuresImages = [
+	'/assets/images/cinema/cinema-feature-1.jpg',
+	'/assets/images/cinema/cinema-feature-2.jpg',
+	'/assets/images/cinema/cinema-feature-3.jpg',
+	'/assets/images/cinema/cinema-feature-1.jpg'
+] %}
+
+{% set featuresList = [
+	{
+		title: 'Кинотеатр нового поколения',
+		text: 'На IMAX сеансах вам будет доступно полное погружение в атмосферу фильма. На огромном экране, края которого выходят за границы поля зрения, вы увидите даже мельчайшие детали, а звук поражает объемом благодаря специальной схеме установки динамиков.'
+	},
+	{
+		title: 'Удобный кинобар',
+		text: 'На IMAX сеансах вам будет доступно полное погружение в атмосферу фильма. На огромном экране, края которого выходят за границы поля зрения, вы увидите даже мельчайшие детали, а звук поражает объемом благодаря специальной схеме установки динамиков.'
+	},
+	{
+		title: 'Эффект реальности',
+		text: 'На IMAX сеансах вам будет доступно полное погружение в атмосферу фильма. На огромном экране, края которого выходят за границы поля зрения, вы увидите даже мельчайшие детали, а звук поражает объемом благодаря специальной схеме установки динамиков.'
+	},
+	{
+		title: 'Комфортная покупка билетов',
+		text: 'На IMAX сеансах вам будет доступно полное погружение в атмосферу фильма. На огромном экране, края которого выходят за границы поля зрения, вы увидите даже мельчайшие детали, а звук поражает объемом благодаря специальной схеме установки динамиков.'
+	}
+] %}
+
+<section class="page__section features" data-features>
+	<div class="features__gallery swiper" data-features-gallery>
+		<div class="swiper-wrapper">
+			{% for img in featuresImages %}
+				<div class="swiper-slide">
+					<picture class="features__gallery-picture">
+						<img class="features__gallery-img" src="{{ img }}" width="516" height="688" alt="">
+					</picture>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<ul class="features__list">
+		{% for item in featuresList %}
+			<li class="features__item" data-features-item>
+				<p class="features__item-title text-l">{{ item.title | safe }}</p>
+				<div class="features__item-text">
+					<p>{{ item.text | safe }}</p>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="features__gallery-nav container">
+			{{ component('button', {
+				className: '_slider-nav swiper-button-prev',
+				attr: 'aria-label="Prev"'
+			}) }}
+			{{ component('button', {
+				className: '_slider-nav swiper-button-next',
+				attr: 'aria-label="Next"'
+			}) }}
+		</div>
+</section>

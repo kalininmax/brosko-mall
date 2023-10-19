@@ -1,0 +1,26 @@
+<section class="page__section commune">
+	<div class="commune__title-wrapper">
+		<h2 class="commune__title section-title _reverse" data-animation="fadeInLetters"><span>Коммуна</span></h2>
+		<div class="commune__text" data-animation="fadeIn">
+			<p>Коммуна — это люди, их творчество, идеи, энергия и образование</p>
+		</div>
+	</div>
+	<div class="commune__container container">
+		<picture class="commune__picture" data-parallax-img>
+			<img class="commune__img" src="/assets/images/commune/commune-cover.jpg" width="1138" height="1428" alt="">
+		</picture>
+		<article class="commune__card" data-parallax-card>
+			<picture class="commune__card-picture">
+				<img class="commune__card-img" src="/assets/images/commune/commune-card.jpg" width="375" height="241" alt="">
+			</picture>
+			<div class="commune__card-text">
+				<p>Первое в Хабаровске культурно-образовательное пространство, расположенное в торговом центре. Это новый опыт, который «BROSKO MALL» дарит своим посетителям</p>
+			</div>
+			{{ component('button', {
+				className: '_more-link commune__card-link',
+				text: 'Подробнее о коммуне',
+				href: '#'
+			}) }}
+		</article>
+	</div>
+</section>

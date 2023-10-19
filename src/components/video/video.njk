@@ -1,0 +1,18 @@
+<div class="video{% if props.className %} {{ props.className }}{% endif %}">
+	<div class="video__wrapper" data-video>
+		<a class="video__link" href="{{ props.videoUrl }}">
+			{{ component('picture', {
+				className: 'video__cover',
+				classNameImg: 'full-size-img',
+				src: props.cover
+			}) }}
+		</a>
+		{{ component('button', {
+			className: 'video__button _play-video',
+			iconName: 'play-btn',
+			iconAttr: 'width="70" height="70"',
+			attr: 'aria-label="Запустить видео"'
+		}) }}
+	</div>
+	<p class="video__duration text-m-universal-medium">[{{ props.duration }}]</p>
+</div>

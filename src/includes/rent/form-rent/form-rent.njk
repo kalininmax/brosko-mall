@@ -1,0 +1,113 @@
+<form class="rent-form__form form" data-form>
+	<div class="form__inputs">
+		<fieldset class="form__fieldset">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Личные данные</legend>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'Имя',
+						label: 'Имя',
+						id: 'form-rent-name',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Телефон',
+						label: 'Телефон',
+						id: 'form-rent-tel',
+						required: true,
+						inputAttr: 'inputmode="tel"'
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'email',
+						name: 'E-mail',
+						label: 'E-mail',
+						id: 'form-rent-email',
+						required: true
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+		<fieldset class="form__fieldset">
+			<div class="form__fieldset-inner">
+				<legend class="form__legend">Данные организации</legend>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'Название организации',
+						label: 'Название организации',
+						id: 'form-rent-company-name',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Тип товаров ',
+						label: 'Тип товаров ',
+						id: 'form-rent-product-type',
+						required: true
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'Торговые марки',
+						label: 'Торговые марки',
+						id: 'form-rent-trade-marks',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Количество магазинов',
+						label: 'Количество магазинов',
+						id: 'form-rent-store-qty',
+						required: true
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'text',
+						name: 'В каких ТЦ представлены',
+						label: 'В каких ТЦ представлены',
+						id: 'form-rent-malls',
+						required: true
+					}) }}
+					{{ component('input', {
+						type: 'text',
+						name: 'Размер площади для аренды, кв.м.',
+						label: 'Размер площади для аренды, кв.м.',
+						id: 'form-rent-area',
+						required: true
+					}) }}
+				</div>
+				<div class="form__row">
+					{{ component('input', {
+						type: 'url',
+						name: 'Ссылка на файл или презентацию',
+						label: 'Ссылка на файл или презентацию',
+						id: 'form-rent-file-link',
+						required: true
+					}) }}
+				</div>
+			</div>
+		</fieldset>
+
+		<div class="form__checkboxes">
+			{{ component('input-checkbox', {
+				name: 'agreement',
+				text: 'Я согласен на обработку моих <a href="#" target="_blank" rel="nofollow">персональных данных</a> и соглашаюсь с условиями <a href="#" target="_blank" rel="nofollow">Пользовательского соглашения</a>',
+				inputAttr: 'required'
+			}) }}
+		</div>
+	</div>
+
+	<div class="form__bottom">
+		{{ component('button', {
+			className: 'form__submit-btn _full-width _more-link _white',
+			type: 'submit',
+			text: 'Отправить'
+		}) }}
+	</div>
+</form>

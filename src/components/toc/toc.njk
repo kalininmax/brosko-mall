@@ -1,0 +1,9 @@
+<nav class="toc{% if props.className %} {{ props.className }}{% endif %}" aria-label="Содержание" data-toc>
+	<ul class="toc__list">
+	{% for item in props.list %}
+		<li class="toc__item">
+			<a class="toc__link" href="{{ item.href }}" data-link>{{ item.text }}</a>
+		</li>
+	{% endfor %}
+	</ul>
+</nav>

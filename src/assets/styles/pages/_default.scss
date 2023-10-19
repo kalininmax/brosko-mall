@@ -1,0 +1,10 @@
+.page {
+	$this: &;
+	&._default {
+		@media (max-width: $laptop-md) {
+			#{$this}__main {
+				padding-top: rem(130);
+			}
+		}
+	}
+}

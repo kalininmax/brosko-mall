@@ -1,5 +1,141 @@
-<footer class="footer{% if props.className %} {{ props.className }}{% endif %}">
-	<div class="footer__container container">
-		<p class="footer__title">Footer</p>
+{% set footerCards = [
+	{
+		href: '/career',
+		name: 'Работа в броско',
+		bgColor: '#54D890'
+	},
+	{
+		href: '/rent',
+		name: 'Портал для арендаторов',
+		bgColor: '#EF6EC7'
+	},
+	{
+		href: '/marketing',
+		name: 'Реклама в Броско',
+		bgColor: '#F9EA48'
+	}
+] %}
+
+{% set footerMenuList = [
+	{
+		name: 'Магазины',
+		url: '/stores'
+	},
+	{
+		name: 'Еда',
+		url: '/food'
+	},
+	{
+		name: 'Маркет',
+		url: '/market'
+	},
+	{
+		name: 'Brosco Дети',
+		url: '/kids'
+	},
+	{
+		name: 'События',
+		url: '/events'
+	},
+	{
+		name: 'Кинотеатр',
+		url: '/cinema'
+	},
+	{
+		name: 'Коммуна',
+		url: '/commune'
+	}
+] %}
+
+{% set footerInfoList = [
+	{
+		name: 'Схема ТЦ',
+		url: '/map'
+	},
+	{
+		name: 'Арендаторам',
+		url: '/rent'
+	},
+	{
+		name: 'Правила посещения',
+		url: '/rules#mall-rules'
+	},
+	{
+		name: 'Правила парковки',
+		url: '/rules#parking-rules'
+	}
+] %}
+
+{% set footerProjectsList = [
+	{
+		name: 'Аквакомплекс VOLNA',
+		url: '#'
+	},
+	{
+		name: 'Отель RUMA',
+		url: '#'
+	}
+] %}
+
+<footer class="page__section footer{% if props.className %} {{ props.className }}{% endif %}" data-footer>
+	<a class="footer__logo-link" href="/" aria-label="На главную">
+		{{ component('icon', {
+			iconName: 'site-logo',
+			className: 'footer__logo-icon',
+			attr: 'width="100%"'
+		}) }}
+	</a>
+
+	<ul class="footer__cards">
+		{% for item in footerCards %}
+			<li class="footer__cards-item">
+				<a class="footer__cards-link" href="{{ item.href }}" style="--bg-color:{{ item.bgColor }}">{{ item.name | safe }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="footer__col">
+		<div class="footer__links-wrapper _menu">
+			<p class="footer__links-title">Меню</p>
+			<ul class="footer__links">
+				{% for item in footerMenuList %}
+					<li class="footer__links-item">
+						<a href="{{ item.url }}">{{ item.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="footer__links-wrapper _projects">
+			<p class="footer__links-title">Другие проекты</p>
+			<ul class="footer__links">
+				{% for item in footerProjectsList %}
+					<li class="footer__links-item">
+						<a href="{{ item.url }}">{{ item.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="footer__links-wrapper _info">
+			<p class="footer__links-title">Инфо</p>
+			<ul class="footer__links">
+				{% for item in footerInfoList %}
+					<li class="footer__links-item">
+						<a href="{{ item.url }}">{{ item.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
+
+	<ul class="footer__socials">
+		{% for item in props.socialsList %}
+			<li class="footer__socials-item">
+				<a class="footer__socials-link" href="{{ item.url }}">{{ item.name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<p class="footer__copyright">{{ props.copyright }}</p>
 </footer>

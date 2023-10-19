@@ -1,0 +1,12 @@
+<article class="colored-card{% if props.className %} {{ props.className }}{% endif %}"{% if props.bgColor %} style="--bg-color:{{ props.bgColor }}"{% endif %}>
+	<p class="colored-card__title text-l">
+		{% if props.url %}<a href="{{ props.url }}">{% endif %}
+		{{ props.title }}
+		{% if props.url %}</a>{% endif %}
+	</p>
+	{{ component('picture', {
+		className: 'colored-card__picture',
+		classNameImg: 'colored-card__img full-size-img',
+		src: props.img
+	}) }}
+</article>

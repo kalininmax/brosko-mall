@@ -1,0 +1,7 @@
+<div class="select{% if props.className %} {{ props.className }}{% endif %}" data-select{% if props.attr %} {{ props.attr }}{% endif %}>
+	<select class="select__select" name="{{ props.name }}" id="{{ props.id }}-select" data-native-select>
+		{% for option in props.options %}
+			<option value="{{ option.value }}">{% if option.text %}{{ option.text }}{% else %}{{ option.value }}{% endif %}</option>
+		{% endfor %}
+	</select>
+</div>

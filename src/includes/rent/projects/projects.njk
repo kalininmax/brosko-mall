@@ -1,0 +1,36 @@
+{% set projectsList = [
+	{
+		className: '_volna _rent',
+		title: 'Volna',
+		titleTag: 'Аквакомплекс',
+		text: '<p>В настоящий момент застройщик приступил к возведению нового здания «Броско Молл», где разместятся водно-оздоровительный комплекс, гостиница и фитнес-клуб.</p><p>Вторая очередь площадью свыше 50&nbsp;000 м&sup2; будет запущена в эксплуатацию в 2023 году.</p><p>Подробнее о новом здании Броско Молл на сайте <a href="https://volnabrosko.ru/" target="_blank" rel="nofollow"><b>volnabrosko.ru</b></a></p>',
+		img: 'projects/project-volna.jpg',
+		bgColor: '#73B3DD',
+		buttonText: 'Скачать презентацию',
+		url: '#',
+		buttonHref: '#',
+		buttonAttr: 'download'
+	},
+	{
+		className: '_ruma _rent',
+		title: 'Ruma',
+		titleTag: 'Отель',
+		text: '<p>В настоящий момент застройщик приступил к возведению нового здания «Броско Молл», где разместятся водно-оздоровительный комплекс, гостиница и фитнес-клуб.</p><p>Вторая очередь площадью свыше 50&nbsp;000 м&sup2; будет запущена в эксплуатацию в 2023 году.</p><p>Подробнее о новом здании Броско Молл на сайте <a href="https://volnabrosko.ru/" target="_blank" rel="nofollow"><b>volnabrosko.ru</b></a></p>',
+		img: 'projects/project-ruma.jpg',
+		bgColor: '#B7BBC0',
+		buttonText: 'Скачать презентацию',
+		url: '#',
+		buttonHref: '#',
+		buttonAttr: 'download'
+	}
+] %}
+
+<section class="page__section projects">
+	<ul class="projects__list _rent container">
+		{% for item in projectsList %}
+			<li class="projects__item">
+				{{ component('project-card', item) }}
+			</li>
+		{% endfor %}
+	</ul>
+</section>

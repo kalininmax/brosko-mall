@@ -1,0 +1,36 @@
+{% set rentCards = [
+	{
+		bgColor: '#AFA7C9',
+		text: '<p>Администратор торгового зала</p>',
+		email: 'balaeva@broscomall.com',
+		tel: '+7 (924) 400-39-69'
+	},
+	{
+		bgColor: '#5EBBB6',
+		text: '<p>Беляева Екатерина</p><p class="alpha-40">Маркетолог</p>',
+		email: 'admin@broscomall.com',
+		tel: '+7 (914) 191-72-30'
+	}
+] %}
+
+<section class="rent">
+	<div class="rent__container">
+		<div class="rent__text">
+			<p>Cвяжитесь с нашими сотрудниками любым удобным для вас способом</p>
+		</div>
+
+		<ul class="rent__list text-body-universal">
+		{% for item in rentCards %}
+			<li class="rent__item" style="--bg-color:{{ item.bgColor }}">
+				<div class="rent__item-text">
+					{{ item.text | safe }}
+				</div>
+				<div class="rent__item-contacts text-m-universal-medium uppercase">
+					<p><a href="mailto:{{ item.email }}">{{ item.email | safe }}</a></p>
+					<p><a href="tel:{{ item.tel }}">{{ item.tel | safe }}</a></p>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+</section>

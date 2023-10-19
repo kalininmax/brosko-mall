@@ -1,12 +1,76 @@
 .svg-sprite {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: -9999px;
+	left: -9999px;
 	z-index: -1;
 	width: 0;
 	height: 0;
 	overflow: hidden;
+}
+
+.visually-hidden {
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+}
+
+.no-select {
+	user-select: none;
+}
+
+.no-pe {
 	pointer-events: none;
+}
+
+// ._dragging, ._dragging * {
+// 	cursor: ew-resize;
+// 	cursor: grabbing;
+// 	cursor: -moz-grabbing;
+// 	cursor: -webkit-grabbing;
+// 	cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAACVBMVEUAAAD///8AAABzxoNxAAAAAXRSTlMAQObYZgAAADFJREFUCNdjQAeLuhgYmCJTFzAwhYbOYGCYGhrBwAQiOEMhRAJIIgEk0cDAoAoj4AAA6jIM345/MPUAAAAASUVORK5CYII='),
+// 		auto;
+// }
+//
+// ._draggable, ._draggable * {
+// 	cursor: ew-resize;
+// 	cursor: grab;
+// 	cursor: -moz-grab;
+// 	cursor: -webkit-grab;
+// 	cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAD///8AAADAwMAJ6vS1AAAAAXRSTlMAQObYZgAAAEVJREFUCNctxLENgDAMRcEndxkkFfMYQUeTAqZwCQN8j8CcxBLFHVhMzwXtHFHd2D7eKlnkScpXJN/oPmt/B1YhD+gV8AEVfxL3aRgilwAAAABJRU5ErkJggg=='),
+// 		auto;
+// }
+.static-text {
+	p {
+		margin-bottom: 1.4em;
+	}
+	img {
+		max-width: 100%;
+	}
+}
+
+@keyframes rotating {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Linear png spinner */
+%spinner {
+	width: 20px;
+	height: 20px;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAALVBMVEUAAABra2toaGhsbGxra2tsbGxra2tsbGxsbGxsbGxra2tsbGxra2tra2tsbGzKmJSYAAAAD3RSTlMAQw0aW4c2vq2YechqK+kA+co8AAAAd0lEQVQI12NgYGDyKGeAAr8pggwMCiAWZxOQgLA9GGCAsQhCMzEwaCdAxQwYXGHSRgwTYUxlhk0wJhvDBgSzAG4UQxOCGQZjmjHIwJjJDJoGUKYAA2MAVOkFBgYviLAgiBsMYrFcAJGpzgwMhmchzpMKXXUQ6HIArngPcG/qBmMAAAAASUVORK5CYII=');
+	opacity: 1;
+	animation: rotating 0.65s linear infinite;
 }
 
 .animated {
@@ -27,15 +91,152 @@
 	transition: none;
 }
 
-.visually-hidden {
-	position: absolute;
-	margin: -1px;
-	padding: 0;
-	width: 1px;
-	height: 1px;
+.force3D {
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+}
+
+%overflow-y {
 	overflow: hidden;
-	border: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
+	overflow: hidden auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.letter,
+.word {
+	display: inline-block;
+}
+
+[data-animation],
+[data-parallax-card] {
+	visibility: hidden;
+}
+
+[data-animation='coloredImg'] {
+	visibility: visible;
+	img {
+		visibility: hidden;
+	}
+}
+
+[data-parallax-img] {
+	position: relative;
+	overflow: hidden;
+	visibility: hidden;
+	img {
+		position: relative;
+		transform: scale(1.1);
+	}
+}
+
+[data-animation='ZoomOut'] {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-title-wrapper {
+	flex-shrink: 0;
+	overflow: hidden;
+}
+
+.c-white {
+	color: var(--white);
+}
+
+.c-yellow-dark {
+	color: var(--yellow-dark);
+}
+
+.bg-black {
+	background-color: var(--black-light);
+}
+
+.bg-yellow {
+	background-color: var(--yellow);
+}
+
+.bg-red-dark {
+	background-color: var(--red-dark);
+}
+
+.bg-green {
+	background-color: var(--green);
+}
+
+.bg-grey {
+	background-color: var(--grey);
+}
+
+.bg-grey-light {
+	background-color: var(--grey-light);
+}
+
+.full-size-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.alpha-40 {
+	opacity: 0.4;
+}
+
+.alpha-50 {
+	opacity: 0.5;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+[data-ticker] {
+	--ticker-gap: #{rem(40)};
+	--ticker-time: 15s;
+
+	position: relative;
+	z-index: 1;
+	display: flex;
+	column-gap: var(--ticker-gap);
+	width: max-content;
+	overflow: hidden;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	& > * {
+		flex-shrink: 0;
+	}
+	&.is-inited {
+		& > * {
+			animation: ticker var(--ticker-time) linear infinite;
+		}
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
+
+	@media (max-width: $mobile-lg) {
+		--ticker-gap: #{rem(20)};
+	}
+}
+
+[data-ticker='reverse'] {
+	&.is-inited {
+		& > * {
+			animation-direction: reverse;
+		}
+	}
+}
+
+@keyframes ticker {
+	0% {
+		-webkit-transform: translateX(0) translateZ(0);
+		transform: translateX(0) translateZ(0);
+	}
+	100% {
+		-webkit-transform: translateX(calc(-1 * var(--ticker-width) / 2 - var(--ticker-gap) / 2)) translateZ(0);
+		transform: translateX(calc(-1 * var(--ticker-width) / 2 - var(--ticker-gap) / 2)) translateZ(0);
+	}
 }

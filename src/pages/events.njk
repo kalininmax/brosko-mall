@@ -1,0 +1,17 @@
+{% extends "../templates/events-page.njk" %}
+
+{% block title %}События | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_events' %}
+
+{% block content %}
+
+<main class="page__main">
+	<div class="page-title-wrapper">
+		<h1 class="page__title page-title _corner _reverse" data-animation="fadeInSqueezeLetters">События</h1>
+	</div>
+	{% include "events/events/events.njk" %}
+	{% include "events/events/events-past.njk" %}
+</main>
+
+{% endblock %}

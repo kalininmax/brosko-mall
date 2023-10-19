@@ -1,0 +1,57 @@
+.marketing-contacts {
+	position: relative;
+	&__content {
+		margin-inline-start: auto;
+		max-width: rem(750);
+		a {
+			position: relative;
+			text-decoration: none;
+			&::after {
+				position: absolute;
+				bottom: 0.2em;
+				left: 0;
+				width: 100%;
+				height: 0.05em;
+				background-color: currentColor;
+				content: '';
+				transition: opacity $fast-transition-duration $default-transition-function;
+			}
+			&:hover {
+				&::after {
+					opacity: 0;
+				}
+			}
+		}
+
+		@media (max-width: $desktop-md) {
+			max-width: rem(565);
+		}
+	}
+	&__name {
+		margin-bottom: rem(40);
+
+		@media (max-width: $mobile-lg) {
+			margin-bottom: rem(42);
+		}
+	}
+	&__mail {
+		margin-bottom: rem(30);
+
+		@media (max-width: $mobile-lg) {
+			margin-bottom: rem(20);
+		}
+	}
+	&__tel {
+		margin-bottom: rem(80);
+	}
+	&__desc {
+		margin-bottom: rem(38);
+	}
+	&__download.button {
+		width: rem(280);
+
+		@media (max-width: $mobile-md) {
+			width: 100%;
+		}
+	}
+}

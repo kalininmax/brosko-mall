@@ -1,0 +1,22 @@
+{% extends "../templates/cinema-page.njk" %}
+
+{% block title %}Кинотеатр | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_cinema' %}
+{% set wrapperClassMod = 'c-white bg-black' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "cinema/cinema-intro/cinema-intro.njk" %}
+	{% include "cinema/features/features.njk" %}
+	{% include "cinema/colored-cards/colored-cards.njk" %}
+</main>
+
+{{ component('button', {
+	href: '/map',
+	text: 'На карте',
+	className: 'page__button button _fixed _inversed'
+}) }}
+
+{% endblock %}

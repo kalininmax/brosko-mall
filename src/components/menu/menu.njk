@@ -1,0 +1,75 @@
+{% set menuNavList = [
+	{ href: '/events', text: 'Cобытия' },
+	{ href: '/stores', text: 'Магазины' },
+	{ href: '/kids', text: 'Brosko Дети' },
+	{ href: '/commune', text: 'Коммуна' },
+	{ href: '/food', text: 'Еда' },
+	{ href: '/cinema', text: 'Кинотеатр' }
+] %}
+{% set menuLinks = [
+	{ href: '/rent', text: 'Арендаторам' },
+	{ href: '/marketing', text: 'Реклама' },
+	{ href: '/rules#mall-rules', text: 'Правила посещения' },
+	{ href: '/rules#parking-rules', text: 'Правила парковки' },
+	{ href: '/contacts', text: 'Контакты' }
+] %}
+{% set menuSocials = [
+	{ href: '#', text: 'ВКонтакте' },
+	{ href: '#', text: 'Telegram' },
+	{ href: '#', text: 'Youtube' }
+] %}
+
+<nav class="menu{% if props.className %} {{ props.className }}{% endif %}" aria-label="Основная" data-menu>
+	<div class="menu__panel">
+		<button class="menu__button button _menu _burger" type="button" aria-label="Меню" data-menu-opener>
+			<svg class="button__icon" width="25" height="25" viewBox="0 0 19 18" fill="none" aria-hidden="true" role="presentation">
+				<path class="top" d="M1.5 3.5H17.5" stroke="currentColor" stroke-width="1.8" />
+				<path class="middle" d="M1.5 9H17.5" stroke="currentColor" stroke-width="1.8" />
+				<path class="bottom" d="M1.5 14.5H17.5" stroke="currentColor" stroke-width="1.8" />
+			</svg>
+		</button>
+		<a class="menu__logo-link" href="/" aria-label="На главную">
+			{{ component('icon', {
+				iconName: 'site-logo',
+				className: 'menu__logo-icon',
+				attr: 'width="118" height="16"'
+			}) }}
+		</a>
+		{{ component('button', {
+			className: 'menu__button button _menu _map',
+			href: '/map',
+			attr: 'aria-label="Карта"',
+			iconName: 'map',
+			iconAttr: 'width="25" height="25"'
+		}) }}
+	</div>
+	<div class="menu__list-wrapper">
+		<ul class="menu__list">
+			{% for item in menuNavList %}
+				<li class="menu__item">
+					<a class="menu__link" href="{{ item.href }}">
+						<span class="menu__link-text">{{ item.text }}</span>
+						<span class="menu__link-arrow">&rarr;</span>
+					</a>
+				</li>
+			{% endfor %}
+				<li class="menu__item">
+					<a class="menu__link" href="/career">
+						<span class="menu__link-text">Вакансии</span>
+						<span class="menu__link-counter">5</span>
+						<span class="menu__link-arrow">&rarr;</span>
+					</a>
+				</li>
+		</ul>
+		<ul class="menu__links">
+			{% for item in menuLinks %}
+				<li><a href="{{ item.href }}">{{ item.text }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul class="menu__links _socials">
+			{% for item in menuSocials %}
+				<li><a href="{{ item.href }}">{{ item.text }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</nav>

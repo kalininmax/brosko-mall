@@ -1,0 +1,17 @@
+{
+	"copyright": "Дизайн сайта — rap.digital",
+	"popupsList": [
+		{ "name": "store", "pos": "right" },
+		{ "name": "food", "pos": "right" },
+		{ "closeColor": "black", "name": "rent", "pos": "right" },
+		{ "closeColor": "black", "name": "rent-form", "pos": "right" },
+		{ "closeColor": "black", "name": "vacancy", "pos": "right" },
+		{ "closeColor": "black", "name": "vacancy-form", "pos": "right" },
+		{ "closeColor": "black", "name": "feedback-form", "pos": "right" }
+	],
+	"socialsList": [
+		{ "name": "Вконтакте", "url": "#" },
+		{ "name": "Telegram", "url": "#" },
+		{ "name": "YouTube", "url": "#" }
+	]
+}

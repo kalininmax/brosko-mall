@@ -1,23 +1,55 @@
+.wrapper {
+	position: relative;
+}
+
 .container {
 	margin-inline: auto;
 	width: min(var(--container-max-width), 100% - (var(--container-padding) * 2));
-	&._sm {
-		--container-max-width: #{rem(560)};
-	}
 }
 
 .page {
-	&__body {
-		display: flex;
-		flex-direction: column;
-	}
-	&__main {
-		flex-grow: 1;
-		padding-block: rem(24);
-	}
+	--container-max-width: #{rem(1920)};
+	--container-padding: #{rem(10)};
+	--sections-gap: #{rem(250)};
 	&__section {
-		& + & {
-			margin-top: rem(24);
+		& + &,
+		&.footer {
+			margin-top: var(--sections-gap);
 		}
 	}
+	&__body {
+		._no-scroll & {
+			padding-inline-end: var(--scrollbar-width);
+			overflow: hidden;
+			._ios & {
+				position: fixed;
+			}
+		}
+	}
+
+	@media (max-width: $desktop-md) {
+		--sections-gap: #{rem(250)};
+	}
+
+	@media (max-width: $mobile-lg) {
+		--sections-gap: #{rem(150)};
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.gap-10 {
+	gap: rem(10);
+}
+
+.cols-15 {
+	display: grid;
+	grid-template-columns: repeat(15, 1fr);
+	column-gap: rem(5);
 }

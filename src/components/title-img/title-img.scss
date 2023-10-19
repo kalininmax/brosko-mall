@@ -1,0 +1,24 @@
+.title-img {
+	@extend .text-xl;
+
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: rem(100) var(--container-padding);
+	box-sizing: border-box;
+	background: var(--black) var(--bg-img) center no-repeat;
+	background-size: cover;
+	color: var(--white);
+	text-align: center;
+
+	@media (max-width: $desktop-sm) {
+		@include smoothValue('font-size', 94px, 173px, $mobile-lg, $desktop-sm);
+		@include smoothValue('line-height', 80px, 150px, $mobile-lg, $desktop-sm);
+	}
+
+	@media (max-width: $mobile-lg) {
+		min-height: rem(480);
+		background-image: var(--bg-img-mobile);
+	}
+}

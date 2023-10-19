@@ -1,0 +1,58 @@
+.abc-list {
+	--cell-size: #{rem(40)};
+
+	position: relative;
+	width: max-content;
+
+	@media (max-width: $mobile-lg) {
+		display: flex;
+		margin-inline-end: calc(0px - var(--container-padding));
+		width: calc(100% + var(--container-padding));
+		overflow: auto;
+
+		@include mobile {
+			scrollbar-width: none;
+
+			@include scrollbar {
+				display: none;
+			}
+		}
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(6, min-content);
+		& + & {
+			margin-top: rem(40);
+		}
+
+		@media (max-width: $mobile-lg) {
+			grid-template-columns: auto;
+			grid-auto-flow: column;
+			flex-shrink: 0;
+			& + & {
+				margin-top: 0;
+			}
+		}
+	}
+	&__link {
+		@extend .animated;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: var(--cell-size);
+		height: var(--cell-size);
+		border-radius: 50%;
+		text-transform: uppercase;
+		text-decoration: none;
+		&[aria-disabled='true'] {
+			pointer-events: none;
+			opacity: 0.4;
+		}
+		&:hover,
+		&:focus-visible {
+			outline: none;
+			background-color: var(--grey);
+		}
+	}
+}

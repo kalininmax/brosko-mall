@@ -1,0 +1,20 @@
+{% extends "../templates/career-page.njk" %}
+
+{% block title %}Работа в Brosco | {{ super() }}{% endblock title %}
+
+{% set htmlClassMod = '_career' %}
+
+{% block content %}
+
+<main class="page__main">
+	{% include "career/intro-career/intro-career.njk" %}
+	{% include "career/vacancies/vacancies.njk" %}
+	{% include "career/vacancies/vacancies-renters.njk" %}
+	{% include "career/cta/cta.njk" %}
+
+	{{ component('notification', {
+		text: '<p>Заявка отправлена – мы свяжемся с вами ближайшее время</p>'
+	}) }}
+</main>
+
+{% endblock %}

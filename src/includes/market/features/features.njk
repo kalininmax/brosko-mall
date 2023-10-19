@@ -1,0 +1,71 @@
+{% set featuresImages = [
+	'/assets/images/market/market-feature-1.jpg',
+	'/assets/images/market/market-feature-2.jpg',
+	'/assets/images/market/market-feature-3.jpg',
+	'/assets/images/market/market-feature-1.jpg',
+	'/assets/images/market/market-feature-2.jpg',
+	'/assets/images/market/market-feature-3.jpg'
+] %}
+
+{% set featuresList = [
+	{
+		title: 'Большой ассортимент товаров',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	},
+	{
+		title: 'Хранение продуктов',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	},
+	{
+		title: 'Качество',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	},
+	{
+		title: 'Взаимодействие с&nbsp;покупателем',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	},
+	{
+		title: 'Открытая кухня<br> и собственное производство',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	},
+	{
+		title: 'Оборудование кассовой зоны',
+		text: 'Отличительная черта Броско Маркет — максимальная свежесть и сохранность любого продукта. Для этого в гипермаркете работает современное оборудование охлаждения и хранения. Зеленые овощи, мясо и рыба, морепродукты добираются до покупателя без потерь.'
+	}
+] %}
+
+<section class="page__section features" data-features>
+	<div class="features__gallery swiper" data-features-gallery>
+		<div class="swiper-wrapper">
+			{% for img in featuresImages %}
+				<div class="swiper-slide">
+					<picture class="features__gallery-picture">
+						<img class="features__gallery-img" src="{{ img }}" width="516" height="688" alt="">
+					</picture>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<ul class="features__list">
+		{% for item in featuresList %}
+			<li class="features__item" data-features-item>
+				<p class="features__item-title text-l">{{ item.title | safe }}</p>
+				<div class="features__item-text">
+					<p>{{ item.text | safe }}</p>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="features__gallery-nav container">
+			{{ component('button', {
+				className: '_slider-nav swiper-button-prev',
+				attr: 'aria-label="Prev"'
+			}) }}
+			{{ component('button', {
+				className: '_slider-nav swiper-button-next',
+				attr: 'aria-label="Next"'
+			}) }}
+		</div>
+</section>
