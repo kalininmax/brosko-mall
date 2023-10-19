@@ -1,7 +1,6 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { gsap } from 'gsap';
 import Signal from '../../assets/scripts/classes/Signal';
-import env from '../../assets/scripts/utils/env';
+import ScrollLock from '../../assets/scripts/utils/scroll-lock';
 
 const HTML_CLASSLIST = document.documentElement.classList;
 const ClassName = {
@@ -34,11 +33,11 @@ class Popups {
 		const slideInAnimation = (popup, completeHandler) => {
 			gsap.fromTo(
 				popup,
-				{ autoAlpha: 0, xPercent: 100, display: 'block' },
+				{ xPercent: 100, display: 'block' },
 				{
 					duration: 0.35,
-					autoAlpha: 1,
 					xPercent: 0,
+					clearProps: 'transform',
 					onComplete: () => {
 						completeHandler();
 					},
@@ -48,9 +47,9 @@ class Popups {
 		const slideOutAnimation = (popup, immediate, completeHandler) => {
 			gsap.to(popup, {
 				duration: immediate ? 0 : 0.35,
-				autoAlpha: 0,
 				xPercent: 100,
 				display: 'none',
+				clearProps: 'transform',
 				onComplete: () => {
 					completeHandler();
 				},
@@ -67,7 +66,14 @@ class Popups {
 				element.addEventListener('click', (e) => {
 					e.preventDefault();
 
-					this.open(e.currentTarget.getAttribute('data-popup-opener'));
+					// if (window.innerWidth < 768 && e.target.hasAttribute('data-region-id')) {
+					// 	return;
+					// }
+
+					this.open(
+						e.currentTarget.getAttribute('data-popup-opener'),
+						e.currentTarget
+					);
 				});
 			}
 		);
@@ -75,7 +81,7 @@ class Popups {
 		Array.from(document.querySelectorAll('[data-popup-closer]')).forEach(
 			(element) => {
 				element.addEventListener('click', (e) => {
-					e.preventDefault();
+					e.target.tagName !== 'A' && e.preventDefault();
 
 					this.close();
 				});
@@ -96,7 +102,7 @@ class Popups {
 			}
 		});
 	}
-	open(name) {
+	open(name, opener) {
 		if (this.activePopupName === name || this.animating) {
 			return;
 		}
@@ -109,6 +115,7 @@ class Popups {
 
 		if (!popup) {
 			console.log('No popup for ' + name + ' opener');
+			console.log(opener);
 			return;
 		}
 
@@ -122,12 +129,19 @@ class Popups {
 		this.wrapper.classList.add('_' + name);
 
 		this.wrapper.classList.remove('no-pe');
+		gsap.set(this.wrapper, { autoAlpha: 1 });
 		gsap.to(this.wrapper, {
 			duration: 0.35,
-			autoAlpha: 1,
 			overwrite: true,
 			display: 'flex',
 		});
+
+		if (this.activePopup.getAttribute('data-popup') === 'image') {
+			const imgURL = opener.getAttribute('href');
+			const imgEl = this.activePopup.querySelector('.image-popup__img');
+
+			imgEl.src = imgURL;
+		}
 
 		const completeHandler = () => {
 			const focusElement = this.activePopup.querySelector('[data-popup-focus]');
@@ -153,6 +167,7 @@ class Popups {
 					duration: 0.35,
 					autoAlpha: 1,
 					scale: 1,
+					clearProps: 'transform',
 					onComplete: () => {
 						completeHandler();
 					},
@@ -165,13 +180,11 @@ class Popups {
 		this.openedClass = '_popup-opened-' + name;
 		HTML_CLASSLIST.add(this.openedClass);
 
-		if (!env.isIOS) {
-			disableBodyScroll(this.activePopup);
-		}
-		if (env.isIOS) {
-			document.body.style.overflow = 'hidden';
-		}
+		ScrollLock.enable();
+
 		HTML_CLASSLIST.add(ClassName.NO_SCROLL);
+
+		window.history.pushState({}, '', `#${name}`);
 
 		this.onOpen.call();
 	}
@@ -193,24 +206,15 @@ class Popups {
 			this.activePopupName = '';
 
 			this.wrapper.classList.add('no-pe');
-			gsap.to(this.wrapper, 0.35, {
-				duration: 0.35,
-				autoAlpha: 0,
-				display: 'none',
-			});
+			gsap.to(this.wrapper, { duration: 0.35, display: 'none' });
 
 			const completeHandler = () => {
 				if (!HTML_CLASSLIST.contains('_menu-opened')) {
-					if (!env.isIOS) {
-						enableBodyScroll(this.activePopup);
-					}
-					if (env.isIOS) {
-						document.body.style.overflow = '';
-					}
+					ScrollLock.disable();
 					HTML_CLASSLIST.remove(ClassName.NO_SCROLL);
 				}
-				this.onClose.call();
 				this.animating = false;
+				this.onClose.call();
 			};
 
 			this.animating = true;
@@ -226,6 +230,7 @@ class Popups {
 					autoAlpha: 0,
 					scale: 0.98,
 					display: 'none',
+					clearProps: 'transform',
 					onComplete: () => {
 						completeHandler();
 					},
@@ -238,6 +243,12 @@ class Popups {
 				HTML_CLASSLIST.remove(this.openedClass);
 				this.openedClass = '';
 			}
+
+			window.history.pushState(
+				'',
+				document.title,
+				window.location.pathname + window.location.search
+			);
 		}
 	}
 	getPopup(name) {

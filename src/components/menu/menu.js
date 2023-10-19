@@ -1,5 +1,5 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import env from '../../assets/scripts/utils/env';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollLock from '../../assets/scripts/utils/scroll-lock';
 
 const HTML_CLASSLIST = document.documentElement.classList;
 
@@ -53,12 +53,8 @@ class Menu {
 			window.addEventListener('click', this._onWindowClick);
 		}, 300);
 
-		if (!env.isIOS) {
-			disableBodyScroll(this.container);
-		}
-		if (env.isIOS) {
-			document.body.style.overflow = 'hidden';
-		}
+		ScrollLock.enable();
+		ScrollTrigger.refresh();
 
 		HTML_CLASSLIST.add(ClassName.NO_SCROLL);
 	}
@@ -79,13 +75,16 @@ class Menu {
 			return;
 		}
 
-		if (!env.isIOS) {
-			enableBodyScroll(this.container);
-		}
-		if (env.isIOS) {
-			document.body.style.overflow = '';
+		if (HTML_CLASSLIST.contains('_popup-opened')) {
+			return;
 		}
 
+		ScrollLock.disable();
+
+		clearTimeout(this.TO);
+		this.TO = setTimeout(() => {
+			ScrollTrigger.refresh();
+		}, 500);
 		HTML_CLASSLIST.remove(ClassName.NO_SCROLL);
 	}
 	toggle() {
