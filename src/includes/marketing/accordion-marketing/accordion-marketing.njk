@@ -1,56 +1,56 @@
 {% set marketingAccordeon = [
 	{
 		title: 'Медиаэкраны (большие)',
-		img: '/assets/images/marketing/mediascreens-big.jpg',
+		img: 'marketing/mediascreens-big.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Максимальный формат видео. Невозможно пропустить</p>'
 	},
 	{
 		title: 'Медиаэкраны (малые)',
-		img: '/assets/images/marketing/mediascreens-small.jpg',
+		img: 'marketing/mediascreens-small.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>На входе. Пешеходный трафик</p>'
 	},
 	{
 		title: 'Слимбокс',
-		img: '/assets/images/marketing/slimbox.jpg',
+		img: 'marketing/slimbox.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Новинка. Оригинальный формат</p>'
 	},
 	{
 		title: 'Баннер',
-		img: '/assets/images/marketing/banner.jpg',
+		img: 'marketing/banner.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Большой формат для вашей рекламы</p>'
 	},
 	{
 		title: 'Инсталляции',
-		img: '/assets/images/marketing/installations.jpg',
+		img: 'marketing/installations.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Творческий подход к рекламе товара и услуги</p>'
 	},
 	{
 		title: 'Уличные флаги',
-		img: '/assets/images/marketing/outside-flags.jpg',
+		img: 'marketing/outside-flags.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Тонкие, яркие, на всех этажах BroskoMall, максимальное внимание.</p>'
 	},
 	{
 		title: 'Радио',
-		img: '/assets/images/marketing/radio.jpg',
+		img: 'marketing/radio.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Эффективный канал для аудио информации</p>'
 	},
 	{
 		title: 'Коммуна',
-		img: '/assets/images/marketing/commune.jpg',
+		img: 'marketing/commune.jpg',
 		imgWidth: '114',
 		imgHeight: '85',
 		desc: '<p>Позволяет проводить мероприятия любого формата</p>'
@@ -64,9 +64,11 @@
 			<div class="accordion__toggle cols-15" data-accordion-toggle>
 				<h2 class="accordion__title text-l">{{ item.title | safe }}</h2>
 				<div class="accordion__desc text-body-universal">
-					<picture class="accordion__picture">
-						<img class="full-size-img" src="{{ item.img }}" width="{{ item.imgWidth }}" height="{{ item.imgHeight }}" alt="">
-					</picture>
+					{{ component('picture', {
+							src: item.img,
+							className: 'accordion__picture',
+							classNameImg: 'full-size-img'
+						}) }}
 					{{ item.desc | safe }}
 				</div>
 				<button class="accordion__button" type="button" aria-label="Toggle"></button>

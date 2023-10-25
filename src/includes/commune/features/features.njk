@@ -1,7 +1,7 @@
 {% set featuresImages = [
-	'/assets/images/commune/commune-feature-1.jpg',
-	'/assets/images/commune/commune-feature-2.jpg',
-	'/assets/images/commune/commune-feature-3.jpg'
+	'commune/commune-feature-1.jpg',
+	'commune/commune-feature-2.jpg',
+	'commune/commune-feature-3.jpg'
 ] %}
 
 {% set featuresList = [
@@ -24,9 +24,11 @@
 		<div class="swiper-wrapper">
 			{% for img in featuresImages %}
 				<div class="swiper-slide">
-					<picture class="features__gallery-picture">
-						<img class="features__gallery-img" src="{{ img }}" width="516" height="688" alt="">
-					</picture>
+					{{ component('picture', {
+						src: img,
+						className: 'features__gallery-picture',
+						classNameImg: 'features__gallery-img'
+					}) }}
 				</div>
 			{% endfor %}
 		</div>

@@ -4,7 +4,10 @@
 		<p>Броско Маркет — новый современный гипермаркет. Мы собрали самое передовое и лучшее в продуктовом ритейле со всего мира, чтобы представить это жителям Хабаровска.</p>
 	</div>
 
-	<picture class="cinema-intro__picture" data-animation="ZoomOut">
-		<img class="cinema-intro__img full-size-img" src="/assets/images/market/market-cover.jpg" width="725" height="960" alt="">
-	</picture>
+	{{ component('picture', {
+		src: 'market/market-cover.jpg',
+		className: 'cinema-intro__picture',
+		classNameImg: 'cinema-intro__img full-size-img',
+		attr: 'data-animation="ZoomOut"'
+	}) }}
 </section>

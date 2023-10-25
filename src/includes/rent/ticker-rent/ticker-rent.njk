@@ -1,15 +1,17 @@
 {% set tickerImages = [
-	'/assets/images/rent/rent-ticker-1.jpg',
-	'/assets/images/rent/rent-ticker-2.jpg'
+	'rent/rent-ticker-1.jpg',
+	'rent/rent-ticker-2.jpg'
 ] %}
 
 <section class="page__section ticker-rent">
 	<h2 class="ticker-rent__title text-xl" data-ticker>
 	{% for img in tickerImages %}
 		<span>Заявка на аренду
-			<picture class="ticker-rent__picture">
-				<img class="full-size-img" src="{{ img }}" width="179" height="127" alt="">
-			</picture>
+			{{ component('picture', {
+				src: img,
+				className: 'ticker-rent__picture',
+				classNameImg: 'full-size-img'
+			}) }}
 		</span>
 	{% endfor %}
 	</h2>

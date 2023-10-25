@@ -1,25 +1,22 @@
 {% set foodCoverImages = [
 	{
-		src: 'food/trattoria.jpg',
-		width: 564,
-		height: 372
+		src: 'food/trattoria.jpg'
 	},
 	{
-		src: 'food/trattoria.jpg',
-		width: 564,
-		height: 372
+		src: 'food/trattoria.jpg'
 	},
 	{
-		src: 'food/trattoria.jpg',
-		width: 564,
-		height: 372
+		src: 'food/trattoria.jpg'
 	}
 ] %}
 
 <section class="food">
 	<div class="food__cover">
 		<p class="food__cover-title text-l">BROSKO Траттория</p>
-		<img class="food__cover-logo" src="/assets/images/food/trattoria-logo.png" width="65" height="65" alt="">
+		{{ component('img', {
+				src: 'food/trattoria-logo.png',
+				className: 'food__cover-logo'
+			}) }}
 
 		{{ component('slider', {
 			className: 'food__cover-slider',

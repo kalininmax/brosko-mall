@@ -1,10 +1,17 @@
 <section class="store">
 	<div class="store__cover">
 		<p class="store__cover-title text-l">Adidas</p>
-		<img class="store__cover-logo" src="/assets/images/stores/adidas-logo.png" width="65" height="65" alt="">
-		<picture class="store__cover-picture">
-			<img class="store__cover-img" src="/assets/images/stores/adidas.jpg" width="564" height="372" alt="">
-		</picture>
+
+		{{ component('img', {
+			src: 'stores/adidas-logo.png',
+			className: 'store__cover-logo'
+		}) }}
+
+		{{ component('picture', {
+			src: 'stores/adidas.jpg',
+			className: 'store__cover-picture',
+			classNameImg: 'store__cover-img'
+		}) }}
 	</div>
 
 	<div class="store__container">

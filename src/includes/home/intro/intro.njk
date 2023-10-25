@@ -29,14 +29,18 @@
 		<div class="intro__slider-wrapper swiper" data-intro-slider>
 			<div class="intro__slider swiper-wrapper">
 				<div class="intro__slide swiper-slide">
-					<picture class="intro__slide-img">
-						<img class="full-size-img" src="/assets/images/intro/slide-1.jpg" width="960" height="1080" alt="">
-					</picture>
+					{{ component('picture', {
+						src: 'intro/slide-1.jpg',
+						className: 'intro__slide-img',
+						classNameImg: 'full-size-img'
+					}) }}
 				</div>
 				<div class="intro__slide swiper-slide">
-					<picture class="intro__slide-img">
-						<img class="full-size-img" src="/assets/images/intro/slide-2.jpg" width="960" height="1080" alt="">
-					</picture>
+					{{ component('picture', {
+						src: 'intro/slide-2.jpg',
+						className: 'intro__slide-img',
+						classNameImg: 'full-size-img'
+					}) }}
 				</div>
 			</div>
 			{# <video src="/assets/favicons/vecteezy_seascape-with-a-beautiful-sunset-in-the-evening_3047408.mp4" width="960" height="1080" loop autoplay playsinline muted></video> #}

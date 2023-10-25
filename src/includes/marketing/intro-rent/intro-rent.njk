@@ -5,9 +5,11 @@
 		</div>
 
 		<div class="intro-rent__cover">
-			<picture class="slider__picture">
-				<img class="slider__img full-size-img" src="/assets/images/rent/rent-cover.jpg" width="955" height="670" alt="" loading="lazy">
-			</picture>
+			{{ component('picture', {
+				src: 'rent/rent-cover.jpg',
+				className: 'accordion__picture',
+				classNameImg: 'full-size-img'
+			}) }}
 		</div>
 	</div>
 </section>

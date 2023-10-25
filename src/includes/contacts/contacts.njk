@@ -79,9 +79,11 @@
 
 
 			<div class="contacts__map">
-				<picture class="contacts__map-placeholder">
-					<img class="full-size-img" src="/assets/images/contacts/contacts-map.png" width="660" height="385" alt="">
-				</picture>
+				{{ component('picture', {
+					src: 'contacts/contacts-map.png',
+					className: 'contacts__map-placeholder',
+					classNameImg: 'full-size-img'
+				}) }}
 				<div class="contacts__map-container" data-map="ya" data-longitude="135.079222" data-latitude="48.462181"></div>
 			</div>
 		</div>

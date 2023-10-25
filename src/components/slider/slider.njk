@@ -2,9 +2,11 @@
 	<div class="swiper-wrapper">
 	{% for img in props.images %}
 		<div class="swiper-slide">
-			<picture class="slider__picture">
-				<img class="slider__img full-size-img" src="{{ img.src }}" width="{{ img.width }}" height="{{ img.heigh }}" alt="" loading="lazy">
-			</picture>
+			{{ component('picture', {
+				src: img.src,
+				className: 'slider__picture',
+				classNameImg: 'slider__img full-size-img'
+			}) }}
 		</div>
 	{% endfor %}
 	</div>

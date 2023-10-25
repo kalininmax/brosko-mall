@@ -5,7 +5,10 @@
 		<p>Это новый опыт, который «BROSKO MALL» дарит своим посетителям.</p>
 	</div>
 
-	<picture class="cinema-intro__picture" data-animation="ZoomOut">
-		<img class="cinema-intro__img full-size-img" src="/assets/images/commune/commune-cover.jpg" width="725" height="960" alt="">
-	</picture>
+	{{ component('picture', {
+		src: 'commune/commune-cover.jpg',
+		className: 'cinema-intro__picture',
+		classNameImg: 'cinema-intro__img full-size-img',
+		attr: 'data-animation="ZoomOut"'
+	}) }}
 </section>
