@@ -27,7 +27,7 @@
 
 	<div class="intro__slider-container">
 		<div class="intro__slider-wrapper swiper" data-intro-slider>
-			<div class="intro__slider swiper-wrapper">
+			{# <div class="intro__slider swiper-wrapper">
 				<div class="intro__slide swiper-slide">
 					{{ component('picture', {
 						src: 'intro/slide-1.jpg',
@@ -46,8 +46,8 @@
 						decoding: 'sync'
 					}) }}
 				</div>
-			</div>
-			{# <video src="/assets/favicons/vecteezy_seascape-with-a-beautiful-sunset-in-the-evening_3047408.mp4" width="960" height="1080" loop autoplay playsinline muted></video> #}
+			</div> #}
+			<video src="{{ home.introVideo }}" width="960" height="1080" loop autoplay playsinline muted></video>
 		</div>
 	</div>
 </section>

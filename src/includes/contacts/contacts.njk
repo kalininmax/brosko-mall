@@ -2,27 +2,21 @@
 	<div class="contacts__container container text-body-universal">
 		<div class="contacts__intro">
 			<div class="contacts__address">
-				<p class="contacts__subtitle">Адрес</p>
+				<p class="contacts__subtitle">{{ contacts.label2 }}</p>
 				<p class="contacts__address-text text-m-universal-medium uppercase">
-					68006, Хабаровск, ул. Пионерская, 2В
+					{{ contacts.postcode }}, {{ contacts.city }}, {{ contacts.street }}
 				</p>
 			</div>
 
 			<div class="contacts__hours">
-				<p class="contacts__subtitle">График работы</p>
+				<p class="contacts__subtitle">{{ contacts.label3 }}</p>
 				<dl class="contacts__hours-list text-m-universal-medium uppercase">
+				{% for item in contacts.openingHours %}
 					<div class="contacts__hours-item">
-						<dt>Торговый зал</dt>
-						<dd>10:00 – 22:00</dd>
+						<dt>{{ item.name }}</dt>
+						<dd>{{ item.hours }}</dd>
 					</div>
-					<div class="contacts__hours-item">
-						<dt>Brosco маркет</dt>
-						<dd>09:00 – 23:00</dd>
-					</div>
-					<div class="contacts__hours-item">
-						<dt>Кинотеатр</dt>
-						<dd>09:00 – 02:00</dd>
-					</div>
+				{% endfor %}
 				</dl>
 			</div>
 
@@ -34,47 +28,40 @@
 		</div>
 
 		<div class="contacts__content">
-			<table class="contacts__table">
+			{% if contacts.staffContacts %}
+				<table class="contacts__table">
 					<tbody>
-						<tr>
-							<th class="text-body-universal" scope="row">По всем вопросам</th>
-							<td>
-								<span>Администратор ТЦ</span>
-								<a class="text-m-universal-medium uppercase" href="mailto:admin@broskomall.com">admin@broskomall.com</a>
-								<a class="tel text-m-universal-medium uppercase" href="tel:8(924)400-39-69">8 (924) 400-39-69</a>
-							</td>
-						</tr>
-						<tr>
-							<th class="text-body-universal" scope="row">Исполнительный директор</th>
-							<td>
-								<span>Ксения Руденко</span>
-								<a class="text-m-universal-medium uppercase" href="mailto:ragimova.k@dv-nevada.ru">ragimova.k@dv-nevada.ru</a>
-							</td>
-						</tr>
-						<tr>
-							<th class="text-body-universal" scope="row">Руководитель коммерческого отдела</th>
-							<td>
-								<span>Инна Анисимова</span>
-								<a class="text-m-universal-medium uppercase" href="mailto:anisimova.i@dv-nevada.ru">anisimova.i@dv-nevada.ru</a>
-							</td>
-						</tr>
-						<tr>
-							<th class="text-body-universal" scope="row">Маркетолог</th>
-							<td>
-								<span>Татьяна Шевкина</span>
-								<a class="text-m-universal-medium uppercase" href="mailto:shevkina.t@dv-nevada.ru">shevkina.t@dv-nevada.ru</a>
-							</td>
-						</tr>
+						{% for item in contacts.staffContacts %}
+							<tr>
+								{% if item.title %}
+									<th class="text-body-universal" scope="row">{{ item.title }}</th>
+								{% endif %}
+								<td>
+									{% if item.name %}
+										<span>{{ item.name }}</span>
+									{% endif %}
+									{% if item.email %}
+										<a class="text-m-universal-medium uppercase" href="mailto:{{ item.email }}">{{ item.email }}</a>
+									{% endif %}
+									{% if item.tel %}
+										<a class="tel text-m-universal-medium uppercase" href="tel:{{ item.tel }}">{{ item.tel }}</a>
+									{% endif %}
+								</td>
+							</tr>
+						{% endfor %}
 					</tbody>
 				</table>
+			{% endif %}
 
 			<div class="contacts__socials">
-				<p class="contacts__subtitle">Социальные сети</p>
-				<ul class="text-m-universal-medium uppercase">
-					<li><a href="#" target="_blank" rel="nofollow">Telegram</a></li>
-					<li><a href="#" target="_blank" rel="nofollow">ВКонтакте</a></li>
-					<li><a href="#" target="_blank" rel="nofollow">YouTube</a></li>
-				</ul>
+				<p class="contacts__subtitle">{{ contacts.label4 }}</p>
+				{% if contacts.socials %}
+					<ul class="text-m-universal-medium uppercase">
+						{% for item in contacts.socials %}
+							<li><a href="{{ item.link }}" target="_blank" rel="nofollow">{{ item.name }}</a></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
 			</div>
 
 

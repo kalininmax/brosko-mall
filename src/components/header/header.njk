@@ -89,7 +89,7 @@
 	{% if props.feedbackFormLink %}
 		{{ component('button', {
 			className: '_header-link _full-width _plus header__link',
-			text: 'Написать нам',
+			text: props.buttonText,
 			attr: 'header-slide-down data-popup-opener="feedback-form"'
 		}) }}
 	{% endif %}

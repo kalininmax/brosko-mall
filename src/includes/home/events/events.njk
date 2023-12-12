@@ -70,9 +70,32 @@
 	<h2 class="events__title section-title" data-animation="fadeInLetters"><span>События</span></h2>
 	<div class="events__container container">
 		<ul class="events__list">
-		{% for eventData in eventsList %}
-			<li class="events__item{% if eventData.className %} {{ eventData.className }}{% endif %}">
-				{{ component('event-card', eventData) }}
+			<li class="events__item _top">
+				{{ component('event-card', {
+					className: '_top',
+					url: 'events/' + home.topEvents[0].slug,
+					title: home.topEvents[0].mainTitle,
+					imgSrc: home.topEvents[0].coverImg,
+					bgColor: home.topEvents[0].bgColor
+				}) }}
+			</li>
+			<li class="events__item _top _top-desktop">
+				{{ component('event-card', {
+					className: '_top _top-desktop',
+					url: 'events/' + home.topEvents[1].slug,
+					title: home.topEvents[1].mainTitle,
+					imgSrc: home.topEvents[1].coverImg,
+					bgColor: home.topEvents[1].bgColor
+				}) }}
+			</li>
+		{% for eventData in home.events %}
+			<li class="events__item">
+				{{ component('event-card', {
+					url: 'events/' + eventData.slug,
+					title: eventData.mainTitle,
+					imgSrc: eventData.coverImg,
+					bgColor: eventData.bgColor
+				}) }}
 			</li>
 		{% endfor %}
 		</ul>
