@@ -4,7 +4,12 @@
 		<p class="event-card__date text-m-regular">{{ props.date | safe }}</p>
 	</a>
 
-	<picture class="event-card__picture">
-		<img class="event-card__img full-size-img" src="{{ props.imgSrc }}" alt="" style="--bg-color-img:{{ props.bgColor }}" data-animation="coloredImg">
-	</picture>
+	{% set attr = 'style="--bg-color-img:' + props.bgColor + '"' + ' data-animation="coloredImg"' %}
+
+	{{ component('picture', {
+		className: 'event-card__picture',
+		classNameImg: 'event-card__img full-size-img',
+		src: props.imgSrc,
+		attr: attr
+	}) }}
 </article>

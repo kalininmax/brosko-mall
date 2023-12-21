@@ -1,7 +1,10 @@
 <section class="intro-event">
 	<h1 class="intro-event__title page-title" data-ticker><span>{{ event.title }}</span></h1>
 
-	<picture class="intro-event__picture">
-		<img class="intro-event__img full-size-img" src="{{ event.coverImg }}" alt="" data-animation="ZoomOut">
-	</picture>
+	{{ component('picture', {
+		className: 'intro-event__picture',
+		classNameImg: 'intro-event__img full-size-img',
+		src: event.coverImg,
+		attr: 'data-animation="ZoomOut"'
+	}) }}
 </section>
