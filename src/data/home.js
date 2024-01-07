@@ -15,8 +15,15 @@ module.exports = async function () {
 		body: {
 			query: 'page("home")',
 			select: {
+				introMenuPages: 'page.introMenuPages.toStructure',
 				introVideo: 'page.introVideo.toFile.url',
 				eventsTitle: true,
+				tickerTitle: true,
+				communeTitle: true,
+				communeSlogan: true,
+				communeCardImg: 'page.communeCardImg.toFile.url',
+				communeCardText: 'page.communeCardText.kt',
+				communeCardLinkText: true,
 				topEvents: {
 					query: 'page.topEvents.toPages',
 					select: {
@@ -33,6 +40,19 @@ module.exports = async function () {
 						mainTitle: true,
 						coverImg: 'page.coverImg.toFile.url',
 						bgColor: true,
+						url: true,
+						slug: true,
+					},
+				},
+				ticker1: 'page.ticker1.toStructure',
+				ticker2: 'page.ticker2.toStructure',
+				otherPages: {
+					query: 'page.otherPages.toPages',
+					select: {
+						mainTitle: true,
+						coverImg: 'page.coverImg.toFile.url',
+						imgPosition: true,
+						cardColor: true,
 						url: true,
 						slug: true,
 					},

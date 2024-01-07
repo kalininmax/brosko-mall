@@ -15,20 +15,20 @@
 ] %}
 
 <section class="page__section stores-ticker">
-	<h2 class="container stores-ticker__title">Более 150 магазинов и ресторанов:</h2>
+	<h2 class="container stores-ticker__title">{{ home.tickerTitle }}</h2>
 
 	<div class="stores-ticker__list-wrapper">
 		<ul class="stores-ticker__list text-xl" data-ticker>
-			{% for item in storesList1 %}
+			{% for item in home.ticker1 %}
 				<li class="stores-ticker__item">
-					<a href="#" class="stores-ticker__link">{{ item }}</a>
+					<a href="{{ item.linkurl }}" class="stores-ticker__link">{{ item.linktext }}</a>
 				</li>
 			{% endfor %}
 		</ul>
 		<ul class="stores-ticker__list text-xl" data-ticker>
-			{% for item in storesList2 %}
+			{% for item in home.ticker2 %}
 				<li class="stores-ticker__item">
-					<a href="#" class="stores-ticker__link">{{ item }}</a>
+					<a href="{{ item.linkurl }}" class="stores-ticker__link">{{ item.linktext }}</a>
 				</li>
 			{% endfor %}
 		</ul>

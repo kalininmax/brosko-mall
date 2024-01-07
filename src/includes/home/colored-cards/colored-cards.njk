@@ -24,14 +24,14 @@
 
 <div class="page__section page__colored-cards colored-cards container">
 	<ul class="colored-cards__list" data-animation="fadeInCards">
-		{% for item in coloredCardsList %}
+		{% for pageData in home.otherPages %}
 			<li class="colored-cards__item">
 				{{ component('colored-card', {
-					className: 'colored-cards__card' + item.className,
-					url: item.href,
-					title: item.title,
-					img: item.img,
-					bgColor: item.bgColor
+					className: 'colored-cards__card _img-' + pageData.imgPosition,
+					url: pageData.url,
+					title: pageData.mainTitle,
+					img: pageData.coverImg,
+					bgColor: pageData.cardColor
 				}) }}
 			</li>
 		{% endfor %}
