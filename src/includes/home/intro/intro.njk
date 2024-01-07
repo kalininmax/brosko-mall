@@ -9,25 +9,22 @@
 <section class="page__section intro" data-intro>
 	<div class="intro__list-wrapper">
 		<ul class="intro__list text-l">
-			{% for item in introNavList %}
-				<li class="intro__item">
-					<a class="intro__link" href="{{ item.href }}" data-section="{{ item.id }}">
-						<span class="intro__link-text">{{ item.text }}</span>
+			{% for item in intro.data %}
+				<li class="intro__item" style="--color:{{ item.color }}">
+					<a class="intro__link" href="/{{ item.slug }}" data-section="{{ item.slug }}">
+						<span class="intro__link-text">{{ item.title }}</span>
+						{% if item.showCounter %}
+							<span class="intro__link-counter">{{ item.count }}</span>
+						{% endif %}
 					</a>
 				</li>
 			{% endfor %}
-				<li class="intro__item">
-					<a class="intro__link" href="/career" data-section="career">
-						<span class="intro__link-text">Вакансии</span>
-						<span class="intro__link-counter">5</span>
-					</a>
-				</li>
 		</ul>
 	</div>
 
 	<div class="intro__slider-container">
 		<div class="intro__slider-wrapper swiper" data-intro-slider>
-			<div class="intro__slider swiper-wrapper">
+			{# <div class="intro__slider swiper-wrapper">
 				<div class="intro__slide swiper-slide">
 					{{ component('picture', {
 						src: 'intro/slide-1.jpg',
@@ -46,8 +43,8 @@
 						decoding: 'sync'
 					}) }}
 				</div>
-			</div>
-			{# <video src="/assets/favicons/vecteezy_seascape-with-a-beautiful-sunset-in-the-evening_3047408.mp4" width="960" height="1080" loop autoplay playsinline muted></video> #}
+			</div> #}
+			<video src="{{ home.introVideo }}" width="960" height="1080" loop autoplay playsinline muted></video>
 		</div>
 	</div>
 </section>

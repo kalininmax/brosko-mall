@@ -1,6 +1,6 @@
 {% extends "../templates/contacts-page.njk" %}
 
-{% block title %}Контакты | {{ super() }}{% endblock title %}
+{% block title %}{{ contacts.mainTitle }} | {{ super() }}{% endblock title %}
 
 {% set htmlClassMod = '_contacts' %}
 
@@ -12,7 +12,7 @@
 
 <main class="page__main">
 	<div class="page__title-wrapper page-title-wrapper">
-		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">Контакты</h1>
+		<h1 class="page-title _corner _reverse" data-animation="fadeInSqueezeLetters">{{ contacts.mainTitle }}</h1>
 	</div>
 
 	{% include "contacts/contacts.njk" %}

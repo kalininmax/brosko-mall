@@ -1,10 +1,10 @@
 <section class="intro-event">
-	<h1 class="intro-event__title page-title" data-ticker><span>Открытие месяца: новый магазин одежды и аксессуаров LIME</span></h1>
+	<h1 class="intro-event__title page-title" data-ticker><span>{{ event.title }}</span></h1>
 
 	{{ component('picture', {
-		src: 'events/intro-event-1.jpg',
 		className: 'intro-event__picture',
 		classNameImg: 'intro-event__img full-size-img',
+		src: event.coverImg,
 		attr: 'data-animation="ZoomOut"'
 	}) }}
 </section>

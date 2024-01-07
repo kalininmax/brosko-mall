@@ -1,4 +1,4 @@
-<article class="colored-card{% if props.className %} {{ props.className }}{% endif %}"{% if props.bgColor %} style="--bg-color:{{ props.bgColor }}"{% endif %}>
+<article class="colored-card{% if props.className %} {{ props.className | safe }}{% endif %}"{% if props.bgColor %} style="--bg-color:{{ props.bgColor }}"{% endif %}>
 	<p class="colored-card__title text-l">
 		{% if props.url %}<a href="{{ props.url }}">{% endif %}
 		{{ props.title }}
